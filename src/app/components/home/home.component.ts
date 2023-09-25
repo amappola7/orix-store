@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IProduct } from 'src/app/interfaces/iproduct';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  private _productsList: IProduct[] = [];
+  get productsList(): IProduct[] {
+    return this._productsList;
+  }
+  set productsList(products: IProduct[]) {
+    this._productsList = products;
+  }
 
+  constructor(
+    private productService: ProductService
+  ) {}
+
+  ngOnInit() {
+    this.getProducts()
+  }
+
+  getProducts(): void {
+    console.log('FUnciona');
+    this.productService.getProducts()
+    .subscribe((data) => this.productsList = data)
+  }
 }
