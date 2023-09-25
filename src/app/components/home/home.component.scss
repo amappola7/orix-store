@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+
+.products {
+  @include displayFlex(row, center, start, 4rem);
+  width: 100%;
+  padding: 4rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+    padding: 6rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
