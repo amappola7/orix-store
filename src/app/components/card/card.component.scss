@@ -1,0 +1,56 @@
+@import '../../../styles.scss';
+
+.card-container {
+  @include displayFlex(column, space-between, center);
+  width: 32rem;
+  max-width: 32rem;
+  height: 52rem;
+  max-height: 52rem;
+  padding: 2rem 2rem 4rem;
+  border-radius: 20rem;
+  box-shadow: $box-shadow;
+
+  .card-image__container {
+    @include displayFlex(row, center, center);
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-color: $white;;
+    overflow: hidden;
+    background-color: white;
+
+    .card-image__image {
+      width: 60%;
+      object-fit: cover;
+    }
+  }
+
+  .card-information__container {
+    @include displayFlex(row, center, center, 0.8rem);
+    max-width: 100%;
+    text-align: center;
+
+    .card-information__name {
+      max-height: 6rem;
+      font-size: 2rem;
+      overflow: hidden;
+    }
+
+    .card-information__description {
+      max-height: 6.5rem;
+      overflow: hidden;
+    }
+  }
+
+  .card-information__price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $enfasis-color;
+  }
+
+  .card-button {
+    background-color: white;
+    color: $secondary-color;
+    box-shadow: $box-shadow;
+  }
+}

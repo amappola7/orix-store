@@ -1,0 +1,11 @@
+<div class="card-container">
+  <div class="card-image__container">
+    <img class="card-image__image" [src]="productInfo.image" [alt]="productInfo.title" [title]="productInfo.title">
+  </div>
+  <div class="card-information__container">
+    <h2 class="card-information__name">{{productInfo.title}}</h2>
+    <p class="card-information__description">{{productInfo.description}}</p>
+  </div>
+  <p class="card-information__price">{{productInfo.price | currency}}</p>
+  <button class="btn card-button">ADD TO CART</button>
+</div>
