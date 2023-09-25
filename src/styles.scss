@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+$main-color: #2D2942;
+$secondary-color: #F83A26;
+$enfasis-color: #FFC344;
+$grey: #D9D9D9;
+$white: #FFFFFF;
+$font-family: 'League Spartan', sans-serif;
+$box-shadow: 0 0 0.4rem RGBA(0, 0, 0, 0.2);
+
+@mixin displayFlex($flex-direction, $justify-content, $align-items, $gap: 0, $wrap: wrap) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+html {
+  font-family: $font-family;
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
