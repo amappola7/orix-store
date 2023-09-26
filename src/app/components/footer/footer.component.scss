@@ -1,0 +1,47 @@
+@import '../../../styles.scss';
+
+footer {
+  @include displayFlex(row, center, center);
+  height: 8rem;
+
+  .footer-container {
+    @include displayFlex(columns, center, center);
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 4rem;
+    font-size: 2rem;
+    color: $main-color;
+    box-shadow: $box-shadow;
+
+    p {
+      width: 85%;
+      margin: 0.5rem;
+      text-align: center;
+    }
+
+    .screen-mode-button {
+      @include displayFlex(row, center, center, 0.8rem);
+      font-weight: 600;
+      color: $main-color;
+      background-color: transparent;
+
+      .screen-mode-icon {
+        color: $enfasis-color;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  footer {
+    height: 7rem;
+    .footer-container {
+      @include displayFlex(row, center, center);
+
+      .screen-mode-button {
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
