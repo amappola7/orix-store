@@ -1,4 +1,4 @@
-<div class="card-container">
+<div [ngClass]="inputScreenModeII ? 'card-container' : 'card-container dark-mode'">
   <div class="card-image__container">
     <img class="card-image__image" [src]="productInfo.image" [alt]="productInfo.title" [title]="productInfo.title">
   </div>

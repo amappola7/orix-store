@@ -7,6 +7,6 @@
     <img [src]="inputScreenMode ? '../../../assets/images/banner_light_mode.png' : '../../../assets/images/banner_dark_mode.png'" alt="Banner image">
   </div>
   <div class="products" id="products">
-    <app-card  *ngFor="let product of productsList" [productInfo]="product"></app-card>
+    <app-card  *ngFor="let product of productsList" [productInfo]="product" [inputScreenModeII]="inputScreenMode"></app-card>
   </div>
 </section>

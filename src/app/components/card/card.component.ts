@@ -8,4 +8,5 @@ import { IProduct } from 'src/app/interfaces/iproduct';
 })
 export class CardComponent {
   @Input() productInfo!: IProduct;
+  @Input () inputScreenModeII!: boolean;
 }
