@@ -1,5 +1,4 @@
 @import '../../../styles.scss';
-
 .home-container {
   width: 100%;
 
@@ -37,6 +36,27 @@
     @include displayFlex(row, center, start, 4rem);
     width: 100%;
     padding: 3rem 0;
+  }
+}
+
+
+.dark-mode {
+
+  .banner {
+    .banner-content {
+      color: $white;
+
+      span {
+        color: $main-color-variation;
+        -webkit-text-fill-color: $main-color-variation;
+        -webkit-text-stroke-color: $secondary-color;
+      }
+
+      button {
+        color: $enfasis-color;
+        background-color: $main-color;
+      }
+    }
   }
 }
 
