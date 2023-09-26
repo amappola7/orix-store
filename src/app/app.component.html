@@ -1,5 +1,5 @@
 <main>
   <app-header></app-header>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onComponentLoaded($event)"></router-outlet>
   <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
 </main>

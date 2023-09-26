@@ -12,4 +12,8 @@ export class AppComponent {
   setScreenMode(mode: boolean) {
     this.screenMode = mode;
   }
+
+  onComponentLoaded(mode: boolean) {
+    mode = this.screenMode;
+  }
 }
