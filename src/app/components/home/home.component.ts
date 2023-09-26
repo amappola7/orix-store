@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -15,6 +15,8 @@ export class HomeComponent {
   set productsList(products: IProduct[]) {
     this._productsList = products;
   }
+
+  @Input() inputScreenMode!: boolean;
 
   constructor(
     private productService: ProductService

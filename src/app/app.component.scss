@@ -1,0 +1,10 @@
+@import '../styles.scss';
+
+.light-mode {
+  background-color: $white;
+}
+
+.dark-mode {
+  background-color: $main-color-variation;
+  color: $white;
+}
