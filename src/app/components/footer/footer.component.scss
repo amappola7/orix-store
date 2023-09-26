@@ -27,7 +27,8 @@ footer {
     padding: 1rem;
     border-radius: 4rem;
     font-size: 2rem;
-    color: $main-color;
+    color: $white;
+    background-color: $secondary-color;
     box-shadow: $box-shadow;
 
     p {
@@ -40,7 +41,7 @@ footer {
       @include displayFlex(row, center, center, 0.8rem);
       font-weight: 600;
       color: $main-color;
-      background-color: transparent;
+      background-color: $white;
 
       .screen-mode-icon {
         color: $enfasis-color;
