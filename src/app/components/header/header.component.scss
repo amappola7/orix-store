@@ -1,5 +1,23 @@
 @import '../../../styles.scss';
 
+.dark-mode {
+  background-color: $main-color-variation;
+
+  .menu-button {
+    color: $secondary-color;
+  }
+
+  ul {
+    a {
+      color: $white;
+    }
+
+    .cart-shopping-icon {
+      color: $secondary-color;
+    }
+  }
+}
+
 header {
   @include displayFlex(row, space-between, center);
   position: fixed;

@@ -1,5 +1,5 @@
-<header>
-  <img class="logo" src="../../../assets/logos/logo_light.png" alt="">
+<header [ngClass]="inputScreenMode ? '' : 'dark-mode'">
+  <img class="logo" [src]="inputScreenMode ? '../../../assets/logos/logo_light.png' : '../../../assets/logos/logo_dark.png'" alt="">
   <div class="navBar-container">
     <button class="menu-button" *ngIf="screenSize <= 768"><fa-icon class="menu-icon" [icon]="icons.barsMenuIcon"></fa-icon></button>
     <nav *ngIf="screenSize > 768">

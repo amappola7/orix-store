@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faBars, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -12,5 +12,7 @@ export class HeaderComponent {
     barsMenuIcon: faBars,
     shoppingCartIcon: faShoppingCart
   };
+
+  @Input() inputScreenMode!: boolean;
 
 }
