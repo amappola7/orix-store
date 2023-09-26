@@ -1,8 +1,10 @@
 <section class="home-container">
   <div class="banner">
-    <h2>Find the best <span>products</span></h2>
-    <button class="btn">SHOP NOW</button>
-    <img src="" alt="">
+    <div class="banner-content">
+      <h2>Find the<br>best <span>products.</span></h2>
+      <button class="btn">SHOP NOW</button>
+    </div>
+    <img src="../../../assets/images/banner_light_mode.png" alt="Banner image">
   </div>
   <div class="products">
     <app-card  *ngFor="let product of productsList" [productInfo]="product"></app-card>
