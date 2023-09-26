@@ -8,9 +8,9 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 const routes: Routes = [
   {path: '', component: AppComponent},
-  {path: 'log-in', component: LoginComponent},
-  {path: 'sign-up', component: SignupComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent},
+  {path: 'log-in/:sm', component: LoginComponent}, //sm stands for screen mode (ligth or dark mode)
+  {path: 'sign-up/:sm', component: SignupComponent},
+  {path: 'shopping-cart/:sm', component: ShoppingCartComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

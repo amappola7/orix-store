@@ -1,17 +1,17 @@
 <header [ngClass]="inputScreenMode ? '' : 'dark-mode'">
-  <img class="logo" [src]="inputScreenMode ? '../../../assets/logos/logo_light.png' : '../../../assets/logos/logo_dark.png'" alt="">
+  <img class="logo" [src]="inputScreenMode ? '../../../assets/logos/logo_light.png' : '../../../assets/logos/logo_dark.png'" alt="Orix store" routerLink="">
   <div class="navBar-container">
     <button class="menu-button" *ngIf="screenSize <= 768"><fa-icon class="menu-icon" [icon]="icons.barsMenuIcon"></fa-icon></button>
     <nav *ngIf="screenSize > 768">
       <ul>
         <li>
-          <a routerLink="sign-up">Sign up</a>
+          <a routerLink="{{inputScreenMode ? 'sign-up/lm' : 'sign-up/dm'}}">Sign up</a>
         </li>
         <li>
-          <a routerLink="log-in">Log in</a>
+          <a routerLink="{{inputScreenMode ? 'log-in/lm' : 'log-in/dm'}}">Log in</a>
         </li>
         <li>
-          <a routerLink="shopping-cart">
+          <a routerLink="{{inputScreenMode ? 'shopping-cart/lm' : 'shopping-cart/dm'}}">
             <span>
               <fa-icon class="cart-shopping-icon" [icon]="icons.shoppingCartIcon"></fa-icon>
             </span>
