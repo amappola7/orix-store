@@ -1,6 +1,6 @@
 <main [ngClass]="screenMode ? 'light-mode' : 'dark-mode'">
-  <app-header [inputScreenMode]="screenMode"></app-header>
-  <app-home *ngIf="currentRouteParams.length === 0" [inputScreenMode]="screenMode"></app-home>
-  <router-outlet *ngIf="currentRouteParams.length !== 0"></router-outlet>
+  <app-header [inputScreenMode]="screenMode" (onRouteChange)="setCurrentRoute($event)"></app-header>
+  <app-home *ngIf="currentRoute === '/'" [inputScreenMode]="screenMode"></app-home>
+  <router-outlet *ngIf="currentRoute !== '/'"></router-outlet>
   <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
 </main>

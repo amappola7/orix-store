@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faBars, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -14,5 +14,9 @@ export class HeaderComponent {
   };
 
   @Input() inputScreenMode!: boolean;
+  @Output() onRouteChange = new EventEmitter<string>();
 
+  changeRoute(route: string): void {
+    this.onRouteChange.emit(route);
+  }
 }

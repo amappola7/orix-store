@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { IProduct } from './interfaces/iproduct';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +6,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentRoute: string = '/';
   screenMode: boolean = true;
-  currentRouteParams: string[] = [];
 
-  constructor(
-    private route: ActivatedRoute
-  ) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.currentRouteParams = this.route.snapshot.paramMap.keys;
+  setCurrentRoute(route: string): void {
+    this.currentRoute = route;
   }
 
-  setScreenMode(mode: boolean) {
+  setScreenMode(mode: boolean): void {
     this.screenMode = mode;
   }
 }
