@@ -2,10 +2,12 @@
 
 header {
   @include displayFlex(row, space-between, center);
+  position: fixed;
   width: 100%;
   max-width: 100vw;
   height: 7rem;
   padding: 1rem 2.5rem;
+  background-color: $white;
   overflow: hidden;
 
   .logo {

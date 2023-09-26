@@ -5,8 +5,8 @@
 
   .banner {
     @include displayFlex(row, start, center);
-    height: calc(100vh - 7rem);
-    padding: 0 2.5rem 0;
+    height: 100vh;
+    padding: 7rem 2.5rem 0;
     overflow: hidden;
 
     .banner-content {
@@ -55,7 +55,7 @@
       grid-template-columns: repeat(3, 1fr);
       justify-items: center;
       gap: 6rem;
-      padding: 3rem 6rem;
+      padding: 9rem 6rem;
     }
   }
 }

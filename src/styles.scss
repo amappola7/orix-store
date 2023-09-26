@@ -18,6 +18,7 @@ $box-shadow: 0 0 0.6rem RGBA(0, 0, 0, 0.1);
 html {
   font-family: $font-family;
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -39,4 +40,8 @@ html {
 
 .btn:hover {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
