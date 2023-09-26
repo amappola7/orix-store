@@ -1,4 +1,4 @@
-<footer>
+<footer [ngClass]="screenMode ? '' : 'dark-mode'">
   <div class="footer-container">
     <p>© All rights reserved</p>
     <button class="screen-mode-button btn" (click)="changeScreenMode()">

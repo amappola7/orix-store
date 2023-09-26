@@ -1,5 +1,21 @@
 @import '../../../styles.scss';
 
+.dark-mode {
+  .footer-container {
+    background-color: $main-color;
+    color: $white;
+
+    .screen-mode-button {
+      color: $main-color;
+      background-color: $white;
+
+      .screen-mode-icon {
+        color: $grey;
+      }
+    }
+  }
+}
+
 footer {
   @include displayFlex(row, center, center);
   height: 8rem;
