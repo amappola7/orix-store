@@ -1,17 +1,22 @@
 @import '../../../styles.scss';
 
+.home-container {
+  width: 100%;
+}
+
 .products {
   @include displayFlex(row, center, start, 4rem);
   width: 100%;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 @media screen and (min-width: 768px) {
   .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     gap: 6rem;
-    padding: 6rem;
+    padding: 3rem 6rem;
   }
 }
 

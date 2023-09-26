@@ -1,0 +1,25 @@
+<header>
+  <img class="logo" src="../../../assets/logos/logo_light.png" alt="">
+  <div class="navBar-container">
+    <button class="menu-button" *ngIf="screenSize <= 768"><fa-icon class="menu-icon" [icon]="icons.barsMenuIcon"></fa-icon></button>
+    <nav *ngIf="screenSize > 768">
+      <ul>
+        <li>
+          <a href="">Sign up</a>
+        </li>
+        <li>
+          <a href="">Log in</a>
+        </li>
+        <li>
+          <a href="">
+            <span>
+              <fa-icon class="cart-shopping-icon" [icon]="icons.shoppingCartIcon"></fa-icon>
+            </span>
+            </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+

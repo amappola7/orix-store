@@ -1,0 +1,39 @@
+@import '../../../styles.scss';
+
+header {
+  @include displayFlex(row, space-between, center);
+  width: 100%;
+  max-width: 100vw;
+  height: 7rem;
+  padding: 1rem 3rem;
+  overflow: hidden;
+
+  .logo {
+    height: 80%;
+  }
+
+  .menu-button {
+    @include displayFlex(row, center, center);
+    padding: 0.5rem;
+    border: none;
+    font-size: 2.4rem;
+    background-color: transparent;
+    color: $secondary-color;
+  }
+
+  ul {
+    @include displayFlex(row, space-between, center, 1.5rem);
+    list-style: none;
+
+    a {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $main-color;
+      text-decoration: none;
+    }
+
+    .cart-shopping-icon {
+      color: $secondary-color;
+    }
+  }
+}
