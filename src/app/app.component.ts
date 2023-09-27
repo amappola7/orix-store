@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   currentRoute: string = '/';
   screenMode: boolean = true;
+  showMobileNavMenu: boolean = false;
 
   constructor() {}
 
@@ -17,5 +18,9 @@ export class AppComponent {
 
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
+  }
+
+  setShowMobileNavMenu(display: boolean): void {
+    this.showMobileNavMenu = display;
   }
 }

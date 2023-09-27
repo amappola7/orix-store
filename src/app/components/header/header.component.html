@@ -1,7 +1,7 @@
 <header [ngClass]="inputScreenMode ? '' : 'dark-mode'">
   <img class="logo" [src]="inputScreenMode ? '../../../assets/logos/logo_light.png' : '../../../assets/logos/logo_dark.png'" alt="Orix store" routerLink="" (click)="changeRoute('/')">
   <div class="navBar-container">
-    <button class="menu-button" *ngIf="screenSize <= 768"><fa-icon class="menu-icon" [icon]="icons.barsMenuIcon"></fa-icon></button>
+    <button class="menu-button" *ngIf="screenSize <= 768" (click)="displayMobileMenu()"><fa-icon class="menu-icon" [icon]="icons.barsMenuIcon"></fa-icon></button>
     <nav *ngIf="screenSize > 768">
       <ul>
         <li>

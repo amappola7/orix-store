@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    MobileNavMenuComponent
   ],
   imports: [
     BrowserModule,

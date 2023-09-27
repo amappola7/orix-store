@@ -8,6 +8,7 @@ import { faBars, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent {
   screenSize: number = window.screen.width;
+  mobileMenuDisplay: boolean = false;
   icons = {
     barsMenuIcon: faBars,
     shoppingCartIcon: faShoppingCart
@@ -15,8 +16,14 @@ export class HeaderComponent {
 
   @Input() inputScreenMode!: boolean;
   @Output() onRouteChange = new EventEmitter<string>();
+  @Output() onDisplayMobileMenu = new EventEmitter<boolean>();
 
   changeRoute(route: string): void {
     this.onRouteChange.emit(route);
+  }
+
+  displayMobileMenu(): void {
+    this.mobileMenuDisplay = !this.mobileMenuDisplay;
+    this.onDisplayMobileMenu.emit(this.mobileMenuDisplay);
   }
 }

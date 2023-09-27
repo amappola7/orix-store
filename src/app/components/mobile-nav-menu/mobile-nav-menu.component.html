@@ -1,0 +1,37 @@
+<section class="menu-mobile">
+  <button class="btn" (click)="displayMobileMenu()"><fa-icon [icon]="icons.exitIcon"></fa-icon></button>
+  <img src="" alt="" />
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="{{ inputScreenMode ? 'sign-up/lm' : 'sign-up/dm' }}"
+          (click)="changeRoute('sign-up')"
+          >Sign up</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="{{ inputScreenMode ? 'log-in/lm' : 'log-in/dm' }}"
+          (click)="changeRoute('log-in')"
+          >Log in</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="{{
+            inputScreenMode ? 'shopping-cart/lm' : 'shopping-cart/dm'
+          }}"
+          (click)="changeRoute('shopping-cart')"
+        >
+          <span>
+            <fa-icon
+              class="cart-shopping-icon"
+              [icon]="icons.shoppingCartIcon"
+            ></fa-icon>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>

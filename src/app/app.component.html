@@ -1,6 +1,7 @@
 <main [ngClass]="screenMode ? 'light-mode' : 'dark-mode'">
-  <app-header [inputScreenMode]="screenMode" (onRouteChange)="setCurrentRoute($event)"></app-header>
-  <app-home *ngIf="currentRoute === '/'" [inputScreenMode]="screenMode"></app-home>
-  <router-outlet *ngIf="currentRoute !== '/'"></router-outlet>
+  <app-header [inputScreenMode]="screenMode" (onRouteChange)="setCurrentRoute($event)" (onDisplayMobileMenu)="setShowMobileNavMenu($event)"></app-header>
+  <app-mobile-nav-menu *ngIf="showMobileNavMenu" [inputScreenMode]="screenMode" (onRouteChange)="setCurrentRoute($event)" (onDisplayMobileMenu)="setShowMobileNavMenu($event)"></app-mobile-nav-menu>
+  <app-home *ngIf="currentRoute === '/' && showMobileNavMenu === false" [inputScreenMode]="screenMode"></app-home>
+  <router-outlet *ngIf="currentRoute !== '/' && showMobileNavMenu  === false"></router-outlet>
   <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
 </main>
