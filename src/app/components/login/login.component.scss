@@ -1,0 +1,14 @@
+@import '../../../styles.scss';
+
+.login {
+  @include displayFlex(row, center, center);
+  height: calc(100vh - 7rem);
+  max-height: calc(100vh - 7rem);
+  padding-top: 8rem;
+
+  .login__card {
+    width: 40rem;
+    height: 60rem;
+    box-shadow: $box-shadow;
+  }
+}
