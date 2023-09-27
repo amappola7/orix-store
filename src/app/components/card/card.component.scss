@@ -57,5 +57,17 @@
 }
 
 .dark-mode {
-  background-color: $main-color;
+  background-color: $main-color-variation;
+  box-shadow: $box-shadow-variation;
+
+  .card-information__price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+
+  .card-button {
+    background-color: $main-color;
+    color: $enfasis-color;
+  }
 }
