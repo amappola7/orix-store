@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,11 +14,12 @@ export class CardComponent {
   @Input () inputScreenModeII!: boolean;
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ){}
 
   addProductToCart(id: number): void {
     this.productService.getProductById(id)
-    .subscribe((product) => this.selectedProduct = product);
-  }
+    .subscribe((product) => this.cartService.addProduct(product, 1))
+  };
 }

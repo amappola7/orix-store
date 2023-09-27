@@ -17,5 +17,6 @@ export class CartService {
     };
 
     this.cart.push(item);
+    localStorage.setItem("shopping-cart", JSON.stringify(this.cart));
   }
 }
