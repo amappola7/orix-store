@@ -2,13 +2,44 @@
 
 .login {
   @include displayFlex(row, center, center);
-  height: calc(100vh - 7rem);
-  max-height: calc(100vh - 7rem);
-  padding-top: 8rem;
+  height: calc(100vh - 8rem);
+  max-height: calc(100vh - 8rem);
+  padding-top: 7rem;
 
   .login__card {
-    width: 40rem;
-    height: 60rem;
-    box-shadow: $box-shadow;
+    @include displayFlex(column, center, center, 2rem);
+    width: 80%;
+
+    h2 {
+      font-size: 2.4rem;
+    }
+
+    .login__container {
+      @include displayFlex(column, center, center, 2rem);
+
+      .login__submit-button {
+        color: $secondary-color;
+        background-color: $white;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .login {
+    height: calc(100vh - 7rem);
+    max-height: calc(100vh - 7rem);
+    padding: 0;
+
+    .login__card {
+      @include displayFlex(column, center, center, 2rem);
+      width: 40rem;
+      max-width: 40rem;
+      height: 52rem;
+      max-height: 52rem;
+      border-radius: 20rem;
+      box-shadow: $box-shadow;
+    }
   }
 }
