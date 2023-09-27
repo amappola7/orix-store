@@ -7,5 +7,5 @@
     <p class="card-information__description">{{productInfo.description}}</p>
   </div>
   <p class="card-information__price">{{productInfo.price | currency}}</p>
-  <button class="btn card-button">ADD TO CART</button>
+  <button class="btn card-button" (click)="addProductToCart(productInfo.id)">ADD TO CART</button>
 </div>

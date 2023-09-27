@@ -24,4 +24,15 @@ export class ProductService {
       })
     )
   }
+
+  getProductById(id: number): Observable<IProduct> {
+    return this._http.get<IProduct>(`${this._url}/${id}`)
+    .pipe(
+      tap(() => console.log(`Get product by id succesful. Fetched product: ${id}`)),
+      catchError((error) => {
+        console.log(`Error in the get products petition`);
+        return of(error);
+      })
+    )
+  }
 }
