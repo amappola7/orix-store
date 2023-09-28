@@ -38,10 +38,17 @@ html {
   font-family: $font-family;
   font-weight: 600;
   font-size: 1.8rem;
+  box-shadow: $box-shadow;
 }
 
 .btn:hover {
   cursor: pointer;
+  box-shadow: 0 0 0.6rem RGBA(49, 180, 255, 0.3);
+}
+
+.btn:active {
+  cursor: pointer;
+  box-shadow: 0 0 0.6rem RGBA(49, 180, 255, 0.3);
 }
 
 a {
