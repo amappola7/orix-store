@@ -1,1 +1,32 @@
-<p>shopping-cart works!</p>
+<div class="white-space"></div>
+<section class="shopping-cart">
+  <div class="shopping-cart__title">
+    <h2>Your cart</h2>
+    <button class="btn" routerLink="">Continue shopping</button>
+  </div>
+  <div class="shopping-cart__cart">
+    <div class="shopping-cart__container">
+      <div class="cart-item" *ngFor="let item of cart">
+        <div class="cart-item__image-container">
+          <img [src]="item.product.image" [alt]="item.product.title" [title]="item.product.title">
+        </div>
+        <div class="cart-item__content">
+          <h2>{{item.product.title}}</h2>
+          <p>{{item.product.price | currency}}</p>
+          <span>
+            <button class="btn"><fa-icon [icon]="icons.removeProductIcon"></fa-icon></button>
+            <p>{{item.quantity}}</p>
+            <button class="btn"><fa-icon [icon]="icons.addProductIcon"></fa-icon></button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="shopping-cart__resume-order">
+      <div>
+        <h2>Summary</h2>
+        <p>Total {{1000 | currency}}</p>
+      </div>
+      <button class="btn">Check out</button>
+    </div>
+  </div>
+</section>

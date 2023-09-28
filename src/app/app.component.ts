@@ -12,6 +12,10 @@ export class AppComponent {
 
   constructor() {}
 
+  ngOnInit() {
+    // localStorage.setItem('shopping-cart', JSON.stringify([]));
+  }
+
   setCurrentRoute(route: string): void {
     this.currentRoute = route;
   }

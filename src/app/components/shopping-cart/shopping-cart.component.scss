@@ -1,0 +1,126 @@
+@import '../../../styles.scss';
+
+.white-space {
+  width: 100%;
+  height: 8rem
+}
+
+.shopping-cart {
+  @include displayFlex(column, start, center, 1rem);
+  min-height: calc(100vh - 15rem);
+  padding-bottom: 2rem;
+
+  .shopping-cart__title {
+    @include displayFlex(row, space-between, center);
+    width: 100%;
+    padding: 0 1rem 0 2rem;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    button {
+      box-shadow: none;
+      background-color: transparent;
+      color: $main-color;
+      text-decoration: underline;
+    }
+
+    button:hover {
+      color: $secondary-color;
+    }
+
+    button:active {
+      color: $main-color;
+    }
+  }
+
+  .shopping-cart__cart {
+    @include displayFlex(column-reverse, start, center);
+    width: 100%;
+
+    .shopping-cart__container {
+      @include displayFlex(column, start, center, 1.5rem);
+      width: 90%;
+
+      .cart-item {
+        @include displayFlex(row, space-between, center);
+        min-width: 100%;
+        min-height: 12rem;
+        padding: 0.5rem;
+        border-radius: 0.8rem;
+        box-shadow: $box-shadow;
+
+        .cart-item__image-container {
+          @include displayFlex(row, center, center);
+          width: 25%;
+        }
+
+        img {
+          width: 7rem;
+          height: 7rem;
+          border: solid 0.05rem $grey;
+          border-radius: 50%;
+          object-fit: fit;
+        }
+
+        .cart-item__content {
+          width: 75%;
+          padding: 0.5rem;
+
+          h2 {
+            font-size: 2rem;
+            font-weight: 600
+          }
+
+          p {
+            font-size: 1.8rem
+          }
+
+          span {
+            @include displayFlex(row, center, center, 1.5rem);
+            width: 100%;
+
+            button {
+              width: 4rem;
+              background-color: $white;
+              color: $main-color;
+            }
+
+            p {
+              font-size: 1.8rem;
+              font-weight: 600
+            }
+          }
+        }
+      }
+    }
+
+    .shopping-cart__resume-order {
+      @include displayFlex(row, space-between, center);
+      width: 90%;
+      padding: 2rem 0;
+      border-top: solid 0.1rem $grey;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      button {
+        background-color: $white;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .shopping-cart {
+    min-height: calc(100vh - 14rem);
+    padding: 0;
+  }
+}

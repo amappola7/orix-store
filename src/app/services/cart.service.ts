@@ -6,7 +6,10 @@ import { IProduct } from '../interfaces/iproduct';
   providedIn: 'root'
 })
 export class CartService {
-  cart: ICartItem[]  = [];
+  _cart: ICartItem[]  = [];
+  get cart(): ICartItem[] {
+    return this._cart;
+  }
 
   constructor() { }
 
@@ -16,7 +19,7 @@ export class CartService {
       product: productToAdd
     };
 
-    this.cart.push(item);
-    localStorage.setItem("shopping-cart", JSON.stringify(this.cart));
+    this._cart.push(item);
+    localStorage.setItem("shopping-cart", JSON.stringify(this._cart));
   }
 }
