@@ -1,6 +1,8 @@
 @import '../../../styles.scss';
 
 .dark-mode {
+  background-color: $main-color-variation;
+
   .footer-container {
     background-color: $main-color;
     color: $white;

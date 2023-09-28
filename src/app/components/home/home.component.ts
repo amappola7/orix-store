@@ -8,6 +8,8 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  screenMode: boolean = true;
+
   private _productsList: IProduct[] = [];
   get productsList(): IProduct[] {
     return this._productsList;
@@ -15,8 +17,6 @@ export class HomeComponent {
   set productsList(products: IProduct[]) {
     this._productsList = products;
   }
-
-  @Input() inputScreenMode!: boolean;
 
   constructor(
     private productService: ProductService
@@ -30,5 +30,9 @@ export class HomeComponent {
     console.log('FUnciona');
     this.productService.getProducts()
     .subscribe((data) => this.productsList = data)
+  }
+
+  setScreenMode(mode: boolean): void {
+    this.screenMode = mode;
   }
 }

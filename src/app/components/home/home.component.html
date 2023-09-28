@@ -1,13 +1,13 @@
-<section [ngClass]="inputScreenMode ? 'home-container' : 'home-container dark-mode'">
+<section [ngClass]="screenMode ? 'home-container' : 'home-container dark-mode'">
   <div class="banner">
     <div class="banner-content">
       <h2>Find the<br>best <span>products.</span></h2>
       <a href="#products"><button class="btn">SHOP NOW</button></a>
     </div>
-    <img [src]="inputScreenMode ? '../../../assets/images/banner_light_mode.png' : '../../../assets/images/banner_dark_mode.png'" alt="Banner image">
+    <img [src]="screenMode ? '../../../assets/images/banner_light_mode.png' : '../../../assets/images/banner_dark_mode.png'" alt="Banner image">
   </div>
   <div class="products" id="products">
-    <app-card  *ngFor="let product of productsList" [productInfo]="product" [inputScreenModeII]="inputScreenMode"></app-card>
+    <app-card  *ngFor="let product of productsList" [productInfo]="product" [inputScreenModeII]="screenMode"></app-card>
   </div>
 </section>
-<app-footer></app-footer>
+<app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
