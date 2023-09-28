@@ -15,12 +15,7 @@ export class HeaderComponent {
   };
 
   @Input() inputScreenMode!: boolean;
-  @Output() onRouteChange = new EventEmitter<string>();
   @Output() onDisplayMobileMenu = new EventEmitter<boolean>();
-
-  changeRoute(route: string): void {
-    this.onRouteChange.emit(route);
-  }
 
   displayMobileMenu(): void {
     this.mobileMenuDisplay = !this.mobileMenuDisplay;

@@ -5,24 +5,19 @@
     <ul>
       <li>
         <a
-          routerLink="{{ inputScreenMode ? 'sign-up/lm' : 'sign-up/dm' }}"
-          (click)="changeRoute('sign-up')"
+          routerLink="sign-up"
           >Sign up</a
         >
       </li>
       <li>
         <a
-          routerLink="{{ inputScreenMode ? 'log-in/lm' : 'log-in/dm' }}"
-          (click)="changeRoute('log-in')"
+          routerLink="log-in"
           >Log in</a
         >
       </li>
       <li>
         <a
-          routerLink="{{
-            inputScreenMode ? 'shopping-cart/lm' : 'shopping-cart/dm'
-          }}"
-          (click)="changeRoute('shopping-cart')"
+          routerLink="shopping-cart"
         >
           <span>
             <fa-icon
