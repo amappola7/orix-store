@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { ProductService } from 'src/app/services/product.service';
+import { ScreenModeService } from 'src/app/services/screen-mode.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  screenMode: boolean = true;
+  screenMode!: boolean;
 
   private _productsList: IProduct[] = [];
   get productsList(): IProduct[] {
@@ -19,11 +20,17 @@ export class HomeComponent {
   }
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private screenModeService: ScreenModeService
   ) {}
 
   ngOnInit() {
-    this.getProducts()
+    this.getProducts();
+    this.screenMode = this.screenModeService.screenMode;
+  }
+
+  ngOnDestroy() {
+  this.screenModeService.screenMode = this.screenMode;
   }
 
   getProducts(): void {
