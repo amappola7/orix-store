@@ -25,6 +25,31 @@
   }
 }
 
+.dark-mode {
+  background-color: $main-color-variation;
+  color: $white;
+
+  .login__card {
+
+    .login__container {
+      label {
+        color: $white;
+      }
+
+      input {
+        color: $white;
+        background-color: $main-color-variation;
+        box-shadow: $box-shadow-variation;
+      }
+
+      .login__submit-button {
+        color: $enfasis-color;
+        background-color: $main-color;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1080px) {
   .login {
     height: calc(100vh - 7rem);
@@ -39,6 +64,22 @@
       max-height: 52rem;
       border-radius: 20rem;
       box-shadow: $box-shadow;
+    }
+  }
+
+  .dark-mode {
+    background-color: $main-color-variation;
+    color: $white;
+
+    .login__card {
+      box-shadow: $box-shadow-variation;
+
+      .login__container {
+        .login__submit-button {
+          color: $enfasis-color;
+          background-color: $main-color;
+        }
+      }
     }
   }
 }
