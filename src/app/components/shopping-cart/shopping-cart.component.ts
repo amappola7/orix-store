@@ -26,4 +26,9 @@ export class ShoppingCartComponent {
   ngOnDestroy() {
     localStorage.setItem('shopping-cart', JSON.stringify(this.cart));
   }
+
+  clearCart() {
+    this.cartService.clearCart();
+    this.cart = [];
+  }
 }

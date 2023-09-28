@@ -23,4 +23,9 @@ export class CartService {
     this._cart.push(item);
     localStorage.setItem("shopping-cart", JSON.stringify(this._cart));
   }
+
+  clearCart(): void {
+    this._cart = [];
+    localStorage.setItem("shopping-cart", JSON.stringify(this._cart));
+  }
 }
