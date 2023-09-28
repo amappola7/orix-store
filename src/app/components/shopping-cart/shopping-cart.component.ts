@@ -18,7 +18,12 @@ export class ShoppingCartComponent {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    const localStorageCart = localStorage.getItem("shopping-cart") || "[]";
-    this.cart = JSON.parse(localStorageCart);
+    // const localStorageCart = localStorage.getItem("shopping-cart") || "[]";
+    // this.cart = JSON.parse(localStorageCart);
+    this.cart = this.cartService.cart;
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem('shopping-cart', JSON.stringify(this.cart));
   }
 }

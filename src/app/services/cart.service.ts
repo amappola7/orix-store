@@ -6,7 +6,8 @@ import { IProduct } from '../interfaces/iproduct';
   providedIn: 'root'
 })
 export class CartService {
-  _cart: ICartItem[]  = [];
+  _localStorageCart = localStorage.getItem("shopping-cart") || "[]";
+  _cart: ICartItem[]  = JSON.parse(this._localStorageCart);;
   get cart(): ICartItem[] {
     return this._cart;
   }
