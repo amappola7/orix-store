@@ -11,6 +11,7 @@ import { ScreenModeService } from 'src/app/services/screen-mode.service';
 })
 export class ShoppingCartComponent {
   cart: ICartItem[] = [];
+  productsInCart: number[] = [];
   screenMode!: boolean;
   icons = {
     addProductIcon: faPlus,
@@ -24,11 +25,13 @@ export class ShoppingCartComponent {
 
   ngOnInit() {
     this.cart = this.cartService.cart;
+    this.productsInCart = this.cartService.productsInCart;
     this.screenMode = this.screenModeService.screenMode;
   }
 
   ngOnDestroy() {
     localStorage.setItem('shopping-cart', JSON.stringify(this.cart));
+    localStorage.setItem('products-in-cart', JSON.stringify(this.productsInCart));
     this.screenModeService.screenMode = this.screenMode;
   }
 

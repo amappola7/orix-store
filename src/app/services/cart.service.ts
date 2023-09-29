@@ -6,8 +6,14 @@ import { IProduct } from '../interfaces/iproduct';
   providedIn: 'root'
 })
 export class CartService {
+  _localStorageProductsInCart = localStorage.getItem("products-in-cart") || "[]";
+  _productsInCart: number[] = JSON.parse(this._localStorageProductsInCart);
+  get productsInCart(): number[] {
+    return this._productsInCart;
+  }
+
   _localStorageCart = localStorage.getItem("shopping-cart") || "[]";
-  _cart: ICartItem[]  = JSON.parse(this._localStorageCart);;
+  _cart: ICartItem[]  = JSON.parse(this._localStorageCart);
   get cart(): ICartItem[] {
     return this._cart;
   }
@@ -20,12 +26,21 @@ export class CartService {
       product: productToAdd
     };
 
-    this._cart.push(item);
+    if(!this._productsInCart.includes(item.product.id)) {
+      this._cart.push(item);
+      this._productsInCart.push(item.product.id);
+    }
+
+    localStorage.setItem("products-in-cart", JSON.stringify(this._localStorageProductsInCart));
     localStorage.setItem("shopping-cart", JSON.stringify(this._cart));
+
   }
 
   clearCart(): void {
     this._cart = [];
     localStorage.setItem("shopping-cart", JSON.stringify(this._cart));
+
+    this._productsInCart = [];
+    localStorage.setItem("products-in-cart", JSON.stringify(this._productsInCart));
   }
 }
