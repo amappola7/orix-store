@@ -1,25 +1,35 @@
 @import '../../../styles.scss';
 
 .white-space {
+  position: fixed;
   width: 100%;
-  height: 8rem
+  height: 7.3rem;
+  background-color: $white;
 }
 
 .shopping-cart {
   @include displayFlex(column, start, center, 1rem);
-  min-height: calc(100vh - 15rem);
+  min-height: calc(100vh - 8rem);
+  padding-top: 7rem;
   padding-bottom: 2rem;
+
 
   .shopping-cart__title {
     @include displayFlex(row, space-between, center);
-    width: 100%;
-    padding: 0 1rem 0 2rem;
+    width: 90%;
 
     h2 {
+      width: 30%;
       font-size: 2.5rem;
     }
 
+    .shopping-cart__title__buttons {
+      width: 70%;
+      @include displayFlex(row, flex-end, flex-end, 1.5rem);
+    }
+
     button {
+      padding: 0;
       box-shadow: none;
       background-color: transparent;
       color: $main-color;
@@ -48,7 +58,7 @@
         min-width: 100%;
         min-height: 12rem;
         padding: 0.5rem;
-        border-radius: 0.8rem;
+        border-radius: 2rem;
         box-shadow: $box-shadow;
 
         .cart-item__image-container {
@@ -84,7 +94,7 @@
             button {
               width: 4rem;
               background-color: $white;
-              color: $main-color;
+              color: $grey-variation;
             }
 
             p {
@@ -120,7 +130,72 @@
 
 @media screen and (min-width: 1080px) {
   .shopping-cart {
-    min-height: calc(100vh - 14rem);
-    padding: 0;
+    @include displayFlex(column, start, center, 1rem);
+    min-height: calc(100vh - 7rem);
+    padding-top: 7rem;
+
+    .shopping-cart__title {
+      @include displayFlex(row, space-between, center);
+      width: 90%;
+
+      h2 {
+        font-size: 2.8rem;
+      }
+    }
+
+    .shopping-cart__cart {
+      @include displayFlex(row, center, start, 5rem);
+      width: 90%;
+      padding-top: 2rem;
+      border-top: solid 0.1rem $grey;
+
+      .shopping-cart__container {
+        @include displayFlex(column, start, center, 3rem);
+        width: 50%;
+
+        .cart-item {
+          @include displayFlex(row, space-between, center);
+          min-width: 100%;
+
+          .cart-item__image-container {
+            @include displayFlex(row, center, center);
+            width: 20%;
+          }
+
+          img {
+            width: 9rem;
+            height: 9rem;
+            border: none;
+          }
+
+          .cart-item__content {
+            width: 80%;
+
+            p {
+              margin-top: 0.5rem
+            }
+          }
+        }
+      }
+
+      .shopping-cart__resume-order {
+        @include displayFlex(row, center, center, 25%);
+        width: 30%;
+        height: 15rem;
+        padding: 1.5rem;
+        border: none;
+        border-radius: 2rem;
+        box-shadow: $box-shadow;
+
+        h2 {
+          font-size: 2.4rem;
+        }
+
+        p {
+          margin-top: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+    }
   }
 }

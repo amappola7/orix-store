@@ -2,8 +2,10 @@
 <section class="shopping-cart">
   <div class="shopping-cart__title">
     <h2>Your cart</h2>
-    <button class="btn" (click)="clearCart()">Clear</button>
-    <button class="btn" routerLink="">Continue shopping</button>
+    <div class="shopping-cart__title__buttons">
+      <button class="btn" (click)="clearCart()">Clear</button>
+      <button class="btn" routerLink="">Continue shopping</button>
+    </div>
   </div>
   <div class="shopping-cart__cart">
     <div class="shopping-cart__container">
