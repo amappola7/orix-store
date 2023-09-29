@@ -23,8 +23,6 @@ export class ShoppingCartComponent {
   ) {}
 
   ngOnInit() {
-    // const localStorageCart = localStorage.getItem("shopping-cart") || "[]";
-    // this.cart = JSON.parse(localStorageCart);
     this.cart = this.cartService.cart;
     this.screenMode = this.screenModeService.screenMode;
   }

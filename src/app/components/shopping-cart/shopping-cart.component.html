@@ -1,5 +1,5 @@
-<div class="white-space"></div>
-<section class="shopping-cart">
+<div [ngClass]="screenMode ? 'white-space' : 'white-space dark-mode'"></div>
+<section  [ngClass]="screenMode ? 'shopping-cart' : 'shopping-cart dark-mode'">
   <div class="shopping-cart__title">
     <h2>Your cart</h2>
     <div class="shopping-cart__title__buttons">
