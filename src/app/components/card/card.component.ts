@@ -20,6 +20,6 @@ export class CardComponent {
 
   addProductToCart(id: number): void {
     this.productService.getProductById(id)
-    .subscribe((product) => this.cartService.addProduct(product, 1))
+    .subscribe((product) => this.cartService.addProduct(product))
   };
 }

@@ -12,13 +12,14 @@ import { ScreenModeService } from 'src/app/services/screen-mode.service';
 export class ShoppingCartComponent {
   cart: ICartItem[] = [];
   productsInCart: number[] = [];
+  totalCart: number = 0;
   screenMode!: boolean;
   icons = {
     addProductIcon: faPlus,
     removeProductIcon: faMinus
-  }
+  };
 
-  constructor(
+  constructor (
     private cartService: CartService,
     private screenModeService: ScreenModeService
   ) {}
@@ -26,6 +27,7 @@ export class ShoppingCartComponent {
   ngOnInit() {
     this.cart = this.cartService.cart;
     this.productsInCart = this.cartService.productsInCart;
+    this.totalCart = this.cartService.calculateTotalInCart();
     this.screenMode = this.screenModeService.screenMode;
   }
 
@@ -38,6 +40,7 @@ export class ShoppingCartComponent {
   clearCart() {
     this.cartService.clearCart();
     this.cart = [];
+    this.totalCart = this.cartService.calculateTotalInCart();
   }
 
   setScreenMode(mode: boolean): void {

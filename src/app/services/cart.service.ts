@@ -18,11 +18,19 @@ export class CartService {
     return this._cart;
   }
 
+  _totalInCart: number = 0;
+  get totalInCart(): number {
+    return this._totalInCart;
+  }
+  set totalInCart(value: number) {
+    this._totalInCart = value;
+  }
+
   constructor() { }
 
-  addProduct(productToAdd: IProduct, quantityToAdd: number): void {
+  addProduct(productToAdd: IProduct): void {
     const item: ICartItem = {
-      quantity: quantityToAdd,
+      quantity: 1,
       product: productToAdd
     };
 
@@ -42,5 +50,12 @@ export class CartService {
 
     this._productsInCart = [];
     localStorage.setItem("products-in-cart", JSON.stringify(this._productsInCart));
+  }
+
+  calculateTotalInCart(): number {
+    let total = 0;
+    this.cart.forEach((item) => total += item.quantity * item.product.price);
+    this.totalInCart = total;
+    return total;
   }
 }
