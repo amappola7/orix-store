@@ -51,6 +51,11 @@ export class ShoppingCartComponent {
     this.cart = this.cartService.addQuantity(id);
     this.totalCart = this.cartService.calculateTotalInCart();
   }
+
+  removeQuantityToProduct(id: number) {
+    this.cart = this.cartService.removeQuantity(id);
+    this.totalCart = this.cartService.calculateTotalInCart();
+  }
 }
 
 

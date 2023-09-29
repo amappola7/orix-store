@@ -66,4 +66,15 @@ export class CartService {
     this.cart = this.cart.map((item) => item.product.id === id ? {quantity: item.quantity + 1, product: item.product} : item)
     return this.cart;
   }
+
+  removeQuantity(id: number): ICartItem[] {
+    this.cart = this.cart.map((item) => {
+      if(item.product.id === id) {
+        return item.quantity > 0 ? {quantity: item.quantity - 1, product: item.product} : {quantity: item.quantity + 0, product: item.product};
+      } else {
+        return item;
+      }
+    })
+    return this.cart;
+  }
 }
