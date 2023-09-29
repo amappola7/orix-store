@@ -17,6 +17,9 @@ export class CartService {
   get cart(): ICartItem[] {
     return this._cart;
   }
+  set cart(value: ICartItem[]) {
+    this._cart = value;
+  }
 
   _totalInCart: number = 0;
   get totalInCart(): number {
@@ -57,5 +60,10 @@ export class CartService {
     this.cart.forEach((item) => total += item.quantity * item.product.price);
     this.totalInCart = total;
     return total;
+  }
+
+  addQuantity(id: number): ICartItem[] {
+    this.cart = this.cart.map((item) => item.product.id === id ? {quantity: item.quantity + 1, product: item.product} : item)
+    return this.cart;
   }
 }

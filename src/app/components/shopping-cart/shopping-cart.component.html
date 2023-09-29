@@ -19,7 +19,7 @@
           <span>
             <button class="btn"><fa-icon [icon]="icons.removeProductIcon"></fa-icon></button>
             <p>{{item.quantity}}</p>
-            <button class="btn"><fa-icon [icon]="icons.addProductIcon"></fa-icon></button>
+            <button class="btn" (click)="addQuantityToProduct(item.product.id)"><fa-icon [icon]="icons.addProductIcon"></fa-icon></button>
           </span>
         </div>
       </div>

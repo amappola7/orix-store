@@ -46,6 +46,11 @@ export class ShoppingCartComponent {
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
   }
+
+  addQuantityToProduct(id: number) {
+    this.cart = this.cartService.addQuantity(id);
+    this.totalCart = this.cartService.calculateTotalInCart();
+  }
 }
 
 
