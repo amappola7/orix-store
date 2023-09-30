@@ -14,6 +14,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
+import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminViewComponent } from './components/admin-view/admin-view.component
     SignupComponent,
     ShoppingCartComponent,
     MobileNavMenuComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,
