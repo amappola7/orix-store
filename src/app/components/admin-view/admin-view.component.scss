@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .admin-view {
   width: 100%;
@@ -11,8 +11,99 @@
   }
 
   .admin-view__container {
-    min-height: calc(100vh - 7rem);
-    padding-top: 7.3rem;
+    @include displayFlex(column, flex-start, center, 1rem);
+    min-height: calc(100vh - 8rem);
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+
+    .admin-view__title {
+      @include displayFlex(row, space-between, center);
+      width: 90%;
+
+      h2 {
+        width: 30%;
+        font-size: 2.5rem;
+      }
+
+      button {
+        padding: 0;
+        box-shadow: none;
+        background-color: transparent;
+        color: $main-color;
+        text-decoration: underline;
+      }
+
+      button:hover {
+        color: $secondary-color;
+      }
+
+      button:active {
+        color: $main-color;
+      }
+    }
+
+    .admin-view__content {
+      @include displayFlex(row, center, flex-start);
+      width: 100%;
+
+      .admin-view__table {
+        width: 90%;
+        border-spacing: 0 1rem;
+        color: _$main-color-variation;
+        font-size: 1.8rem;
+
+        .td-name {
+          width: 65%;
+        }
+
+        .td-options {
+          width: 35%;
+        }
+
+        thead {
+          height: 4.2rem;
+          border-radius: 1.05rem;
+          box-shadow: $box-shadow;
+          font-size: 2rem;
+        }
+
+        tbody {
+          tr {
+            border-radius: 1rem;
+            box-shadow: $box-shadow;
+
+            .td-name {
+              height: 7.5rem;
+              padding: 1.5rem 0 1.5rem 1.5rem;
+            }
+
+            .td-options {
+              .td-options__container {
+                @include displayFlex(row, center, center, 1rem);
+              }
+
+              button {
+                width: fit-content;
+                height: fit-content;
+                padding: 0;
+                color: $grey-variation;
+                font-size: 2rem;
+                background-color: transparent;
+                box-shadow: none;
+              }
+
+              button:hover {
+                color: $main-color;
+              }
+
+              button:active {
+                color: $grey-variation;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -21,5 +112,159 @@
 
   .white-space {
     background-color: $main-color-variation;
+  }
+
+  .admin-view__container {
+    .admin-view__title {
+      h2 {
+        color: $white;
+      }
+
+      button {
+        color: $white;
+      }
+
+      button:active {
+        color: $white;
+      }
+    }
+
+    .admin-view__content {
+      .admin-view__table {
+        color: $white;
+
+        thead {
+          box-shadow: $box-shadow-variation;
+        }
+
+        tbody {
+          tr {
+            box-shadow: $box-shadow-variation;
+
+            .td-options {
+              button {
+                color: $grey;
+              }
+
+              button:hover {
+                color: $enfasis-color;
+              }
+
+              button:active {
+                color: $grey;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .admin-view {
+    .admin-view__container {
+      padding-top: 8rem;
+      padding-bottom: 2rem;
+
+      .admin-view__title {
+        h2 {
+          font-size: 2.8rem;
+        }
+      }
+
+      .admin-view__content {
+        .admin-view__table {
+          width: 90%;
+          border-spacing: 0 1.5rem;
+
+          thead {
+            height: 5rem;
+
+            .td-image {
+              width: 10%;
+            }
+
+            .td-name {
+              width: 25%;
+            }
+
+            .td-description {
+              width: 30%;
+            }
+
+            .td-category {
+              width: 15%;
+            }
+
+            .td-price {
+              width: 10%;
+            }
+
+            .td-options {
+              width: 10%;
+            }
+          }
+
+          tbody {
+            tr {
+              .td {
+                text-align: center;
+                padding: 1.5rem;
+              }
+
+              .td-image {
+                width: 10%;
+
+                .image-container {
+                  @include displayFlex(row, center, center);
+                  width: 100%;
+                  height: 100%;
+
+                  span {
+                    @include displayFlex(row, center, center);
+                    width: 8rem;
+                    height: 8rem;
+                    background-color: $white;
+                    border-radius: 4rem;
+                    overflow: hidden;
+                    object-fit: cover;
+
+                    img {
+                      width: 75%;
+                    }
+                  }
+                }
+              }
+
+              .td-name {
+                width: 25%;
+              }
+
+              .td-description {
+                text-align: start;
+                width: 30%;
+              }
+
+              .td-category {
+                width: 15%;
+              }
+
+              .td-price {
+                width: 10%;
+              }
+
+              .td-options {
+                width: 10%;
+
+                .td-options__container {
+                  @include displayFlex(row, center, center, 1.5rem);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

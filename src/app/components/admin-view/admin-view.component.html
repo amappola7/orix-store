@@ -1,5 +1,58 @@
-<section class="admin-view" [ngClass]="screenMode ? 'admin-view' : 'admin-view dark-mode'">
+<section [ngClass]="screenMode ? 'admin-view' : 'admin-view dark-mode'">
   <div class="white-space"></div>
-  <div class="admin-view__container"></div>
+  <div class="admin-view__container">
+    <div class="admin-view__title">
+      <h2>Products</h2>
+      <button class="btn">Add product</button>
+    </div>
+    <div class="admin-view__content">
+      <table class="admin-view__table">
+        <thead>
+          <tr>
+            <th class="td-image" *ngIf="screenSize > 768">Image</th>
+            <th class="td-name">Name</th>
+            <th class="td-description" *ngIf="screenSize > 768">Description</th>
+            <th class="td-category" *ngIf="screenSize > 768">Category</th>
+            <th class="td-price" *ngIf="screenSize > 768">Price</th>
+            <th class="td-options">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td class="td td-image" *ngIf="screenSize > 768">
+              <div class="image-container">
+                <span
+                  ><img
+                    [src]="product.image"
+                    [alt]="product.title"
+                    [title]="product.title"
+                /></span>
+              </div>
+            </td>
+            <td class="td td-name">{{ product.title }}</td>
+            <td class="td td-description" *ngIf="screenSize > 768">
+              {{ product.description }}
+            </td>
+            <td class="td td-category" *ngIf="screenSize > 768">
+              {{ product.category }}
+            </td>
+            <td class="td td-price" *ngIf="screenSize > 768">
+              {{ product.price | currency }}
+            </td>
+            <td class="td td-options">
+              <div class="td-options__container">
+                <button class="btn edit-icon">
+                  <fa-icon [icon]="icons.editIcon"></fa-icon>
+                </button>
+                <button class="btn delete-icon">
+                  <fa-icon [icon]="icons.deleteIcon"></fa-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
 <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
