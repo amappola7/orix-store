@@ -17,6 +17,8 @@ export class AdminViewComponent {
     deleteIcon: faTrash
   };
   screenSize: number = window.screen.width;
+
+  // To - Do: Delete this objects after create forms to add and edit product
   productToEdit: IProduct = {
     id: 1,
     title: 'PRODUCTO EDITADO',
@@ -24,6 +26,14 @@ export class AdminViewComponent {
     description: 'ESTA ES LA DESCRIPCIÓN DEL PRODUCTO EDITADO',
     category: 'QUESO',
     image: 'SOME IMAGE',
+  }
+  productToCreate: IProduct = {
+    id: 100,
+    title: 'Queso',
+    price: 123,
+    description: 'El queso es rico con pan y chocolate',
+    category: 'food',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYYGEVU9kNRFjCLwTE_IqCcZf8vRjrNJA808Dm24_OYA&s',
   }
 
   constructor(
@@ -53,5 +63,10 @@ export class AdminViewComponent {
     .subscribe((deletedProduct) => {
       this.products = this.products.filter((product) => product.id !== deletedProduct.id ? product : false);
     });
+  }
+
+  createProduct(productData: IProduct): void {
+    this.productService.createProduct(productData)
+    .subscribe((product) => this.products.push(product));
   }
 }

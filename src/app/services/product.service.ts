@@ -17,7 +17,7 @@ export class ProductService {
   getProducts(): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(this._url)
       .pipe(
-        tap(() => console.log('Petition get products succesful')),
+        tap(() => console.log('Petition get products successful')),
         catchError((error) => {
           console.log(`Error in the get products petition`);
           return of(error);
@@ -28,7 +28,7 @@ export class ProductService {
   getProductById(id: number): Observable<IProduct> {
     return this._http.get<IProduct>(`${this._url}/${id}`)
       .pipe(
-        tap(() => console.log(`Get product by id succesful. Fetched product: ${id}`)),
+        tap(() => console.log(`Get product by id successful. Fetched product: ${id}`)),
         catchError((error) => {
           console.log(`Error in the get products petition`);
           return of(error);
@@ -39,7 +39,7 @@ export class ProductService {
   editProduct(id: number, productData: IProduct): Observable<IProduct> {
     return this._http.put<IProduct>(`${this._url}/${id}`, productData)
       .pipe(
-        tap(() => console.log(`Product with id: ${id}, succesfully uptaded`)),
+        tap(() => console.log(`Product with id: ${id}, successfully uptaded`)),
         catchError((error) => {
           console.log(`Error updating product with id: ${id}`);
           return of(error);
@@ -50,7 +50,7 @@ export class ProductService {
   deleteProduct(id: number): Observable<IProduct> {
     return this._http.delete<IProduct>(`${this._url}/${id}`)
       .pipe(
-        tap(() => console.log(`Product with id: ${id} succesfully deleted`)),
+        tap(() => console.log(`Product with id: ${id} successfully deleted`)),
         catchError((error) => {
           console.log(`Error deleting product with id: ${id}`);
           return of(error);
@@ -58,10 +58,21 @@ export class ProductService {
       )
   }
 
+  createProduct(productData: IProduct): Observable<IProduct> {
+    return this._http.post<IProduct>(this._url, productData)
+    .pipe(
+      tap(() => console.log(`Product with id: ${productData.id} successfully created`)),
+      catchError((error) => {
+        console.log(`Error creating product with id: ${productData.id}`);
+        return of(error);
+      })
+    )
+  }
+
   getCategories(): Observable<string[]> {
     return this._http.get<string[]>(`${this._url}/categories`)
       .pipe(
-        tap(() => console.log('Petition get categories succesful')),
+        tap(() => console.log('Petition get categories successful')),
         catchError((error) => {
           console.log(`Error in the get categories petition`);
           return of(error);
