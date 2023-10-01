@@ -35,4 +35,15 @@ export class ProductService {
       })
     )
   }
+
+  getCategories(): Observable<string[]> {
+    return this._http.get<string[]>(`${this._url}/categories`)
+    .pipe(
+      tap(() => console.log('Petition get categories succesful')),
+      catchError((error) => {
+        console.log(`Error in the get categories petition`);
+        return of(error);
+      })
+    )
+  }
 }

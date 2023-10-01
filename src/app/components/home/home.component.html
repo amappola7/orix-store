@@ -2,13 +2,57 @@
   <div class="white-space"></div>
   <div class="banner">
     <div class="banner-content">
-      <h2>Find the<br>best <span>products.</span></h2>
+      <h2>Find the<br />best <span>products.</span></h2>
       <a href="#products"><button class="btn">SHOP NOW</button></a>
     </div>
-    <img [src]="screenMode ? '../../../assets/images/banner_light_mode.png' : '../../../assets/images/banner_dark_mode.png'" alt="Banner image">
+    <img
+      [src]="
+        screenMode
+          ? '../../../assets/images/banner_light_mode.png'
+          : '../../../assets/images/banner_dark_mode.png'
+      "
+      alt="Banner image"
+    />
   </div>
-  <div class="products" id="products">
-    <app-card  *ngFor="let product of productsList" [productInfo]="product" [inputScreenModeII]="screenMode"></app-card>
+  <div class="search-and-filter-container" id="products">
+    <div class="ipt-container search">
+      <label class="lbl" for="search-bar"
+        ><fa-icon [icon]="icons.searchIcon"></fa-icon
+        ><span *ngIf="screenSize > 768">Search by name</span></label
+      >
+      <input
+        class="ipt"
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="searchingName"
+        (ngModelChange)="searchByName(searchingName)"
+      />
+    </div>
+    <div class="ipt-container filter">
+      <label class="lbl" for="filter"
+        ><fa-icon [icon]="icons.filterIcon"></fa-icon
+        ><span *ngIf="screenSize > 768">Filter by category</span></label
+      >
+      <select
+        class="ipt"
+        name="filter"
+        id="filter"
+        [(ngModel)]="selectedCategory"
+        (change)="filterByCategory(selectedCategory)"
+      >
+        <option value="products" selected>-- All products --</option>
+        <option *ngFor="let category of categoriesList" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="products">
+    <app-card
+      *ngFor="let product of productsList"
+      [productInfo]="product"
+      [inputScreenModeII]="screenMode"
+    ></app-card>
   </div>
 </section>
 <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>

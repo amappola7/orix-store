@@ -40,6 +40,20 @@
     }
   }
 
+  .search-and-filter-container {
+    @include displayFlex(column, flex-start, center, 1.5rem);
+    width: 100%;
+    padding-top: 1.5rem;
+
+    .ipt-container {
+      @include displayFlex(row, center, center, 1.5rem);
+
+      .lbl {
+        width: fit-content;
+      }
+    }
+  }
+
   .products {
     @include displayFlex(row, center, start, 4rem);
     width: 100%;
@@ -71,6 +85,16 @@
       }
     }
   }
+
+  .search-and-filter-container {
+    .ipt-container {
+      .ipt {
+        color: $white;
+        background-color: $main-color-variation;
+        box-shadow: $box-shadow-variation;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -88,7 +112,7 @@
       grid-template-columns: repeat(3, 1fr);
       justify-items: center;
       gap: 6rem;
-      padding: 9rem 6rem;
+      padding: 5rem 6rem;
     }
   }
 }
@@ -100,6 +124,43 @@
         display: flex;
         align-self: center;
         height: 92%;
+      }
+    }
+
+    .search-and-filter-container {
+      @include displayFlex(row, flex-start, center, 1.5rem);
+      padding-top: 10rem;
+      padding-left: 3rem;
+
+      .ipt-container {
+        @include displayFlex(row, flex-start, center, 1.5rem);
+        width: 30%;
+
+        .lbl {
+          width: fit-content;
+          color: $secondary-color;
+
+          span {
+            margin-left: 1rem;
+            color: $main-color-variation;
+          }
+        }
+
+        .ipt {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  .dark-mode {
+    .search-and-filter-container {
+      .ipt-container {
+        .lbl {
+          span {
+            color: $white;
+          }
+        }
       }
     }
   }
