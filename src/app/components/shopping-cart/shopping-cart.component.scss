@@ -53,6 +53,12 @@
       @include displayFlex(column, start, center, 1.5rem);
       width: 90%;
 
+      .empty-cart {
+        color: $main-color-variation;
+        font-size: 2.5rem;
+        font-weight: 600
+      }
+
       .cart-item {
         @include displayFlex(row, space-between, center);
         min-width: 100%;
@@ -153,6 +159,10 @@
 
   .shopping-cart__cart {
     .shopping-cart__container {
+      .empty-cart {
+        color: $white;
+      }
+
       .cart-item {
         box-shadow: $box-shadow-variation;
 

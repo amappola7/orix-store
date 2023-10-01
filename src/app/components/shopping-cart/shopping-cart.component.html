@@ -9,6 +9,7 @@
   </div>
   <div class="shopping-cart__cart">
     <div class="shopping-cart__container">
+      <p class="empty-cart" *ngIf="cart.length === 0">Your cart is empty</p>
       <div class="cart-item" *ngFor="let item of cart">
         <div class="cart-item__image-container">
           <img [src]="item.product.image" [alt]="item.product.title" [title]="item.product.title">
