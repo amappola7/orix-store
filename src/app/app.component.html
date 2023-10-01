@@ -6,4 +6,4 @@
 
 <app-header [inputScreenMode]="screenMode" (onDisplayMobileMenu)="setShowMobileNavMenu($event)"></app-header>
 <app-mobile-nav-menu *ngIf="showMobileNavMenu" [inputScreenMode]="screenMode" (onDisplayMobileMenu)="setShowMobileNavMenu($event)"></app-mobile-nav-menu>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!showMobileNavMenu"></router-outlet>

@@ -1,32 +1,51 @@
 <section class="menu-mobile">
-  <button class="btn" (click)="displayMobileMenu()"><fa-icon [icon]="icons.exitIcon"></fa-icon></button>
-  <img src="" alt="" />
-  <nav>
-    <ul>
-      <li>
-        <a
-          routerLink="sign-up"
-          >Sign up</a
-        >
-      </li>
-      <li>
-        <a
-          routerLink="log-in"
-          >Log in</a
-        >
-      </li>
-      <li>
-        <a
-          routerLink="shopping-cart"
-        >
-          <span>
-            <fa-icon
-              class="cart-shopping-icon"
-              [icon]="icons.shoppingCartIcon"
-            ></fa-icon>
-          </span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="exit-button">
+    <button class="btn" (click)="displayMobileMenu()"><fa-icon [icon]="icons.exitIcon"></fa-icon></button>
+  </div>
+  <div class="content">
+    <img src="../../../assets/logos/logo.png" alt="Logo Orix Store" />
+    <nav>
+      <ul>
+        <li>
+          <a
+          class="btn link"
+            routerLink=""
+            (click)="displayMobileMenu()"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+          class="btn link"
+            routerLink="log-in"
+            (click)="displayMobileMenu()"
+            >Log in</a
+          >
+        </li>
+        <li>
+          <a
+          class="btn link"
+            routerLink="admin-view"
+            (click)="displayMobileMenu()"
+            >Admin</a
+          >
+        </li>
+        <li>
+          <a
+          class="btn link"
+            routerLink="shopping-cart"
+            (click)="displayMobileMenu()"
+          >
+            <span>
+              <fa-icon
+                class="cart-shopping-icon"
+                [icon]="icons.shoppingCartIcon"
+              ></fa-icon>
+            </span>
+            Shopping cart
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </section>
