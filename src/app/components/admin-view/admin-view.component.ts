@@ -17,6 +17,14 @@ export class AdminViewComponent {
     deleteIcon: faTrash
   };
   screenSize: number = window.screen.width;
+  productToEdit: IProduct = {
+    id: 1,
+    title: 'PRODUCTO EDITADO',
+    price: 123,
+    description: 'ESTA ES LA DESCRIPCIÓN DEL PRODUCTO EDITADO',
+    category: 'QUESO',
+    image: 'SOME IMAGE',
+  }
 
   constructor(
     private screenModeService: ScreenModeService,
@@ -31,5 +39,19 @@ export class AdminViewComponent {
 
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
+  }
+
+  editProduct(id: number, productData: IProduct): void {
+    this.productService.editProduct(id, productData)
+    .subscribe((editedProduct) => {
+      this.products = this.products.map((product) => product.id === editedProduct.id ? editedProduct : product);
+    });
+  }
+
+  deleteProduct(id: number): void {
+    this.productService.deleteProduct(id)
+    .subscribe((deletedProduct) => {
+      this.products = this.products.filter((product) => product.id !== deletedProduct.id ? product : false);
+    });
   }
 }

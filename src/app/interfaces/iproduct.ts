@@ -5,5 +5,5 @@ export interface IProduct {
   description: string,
   category: string
   image: string,
-  rating: object
+  rating?: object
 }

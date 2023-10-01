@@ -41,10 +41,16 @@
             </td>
             <td class="td td-options">
               <div class="td-options__container">
-                <button class="btn edit-icon">
+                <button
+                  class="btn edit-icon"
+                  (click)="editProduct(product.id, productToEdit)"
+                >
                   <fa-icon [icon]="icons.editIcon"></fa-icon>
                 </button>
-                <button class="btn delete-icon">
+                <button
+                  class="btn delete-icon"
+                  (click)="deleteProduct(product.id)"
+                >
                   <fa-icon [icon]="icons.deleteIcon"></fa-icon>
                 </button>
               </div>
