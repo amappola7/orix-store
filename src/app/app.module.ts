@@ -15,7 +15,6 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
-import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
 import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { AddOrEditProductFormComponent } from './components/add-or-edit-product-
     ShoppingCartComponent,
     MobileNavMenuComponent,
     AdminViewComponent,
-    GenericModalComponent,
     AddOrEditProductFormComponent
   ],
   imports: [
