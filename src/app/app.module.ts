@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
+import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,16 @@ import { GenericModalComponent } from './components/generic-modal/generic-modal.
     ShoppingCartComponent,
     MobileNavMenuComponent,
     AdminViewComponent,
-    GenericModalComponent
+    GenericModalComponent,
+    AddOrEditProductFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

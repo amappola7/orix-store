@@ -1,0 +1,44 @@
+<div class="product-form">
+  <h2>{{ formAction === "edit" ? "Edit Product" : "Add Product" }}</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="ipt-container input-product-name">
+      <label class="lbl" for="productName">Name</label>
+      <input class="ipt" type="text" id="productName" formControlName="productName" />
+    </div>
+    <div class="ipt-container input-product-price">
+      <label class="lbl" for="productPrice">Price</label>
+      <input class="ipt" type="number" id="productPrice" formControlName="productPrice" />
+    </div>
+    <div class="ipt-container input-product-description">
+      <label class="lbl" for="productDescription">Description</label>
+      <input class="ipt"
+        type="text"
+        id="productDescription"
+        formControlName="productDescription"
+      />
+    </div>
+    <div class="ipt-container input-product-category">
+      <label class="lbl" for="productCategory">Category</label>
+      <select class="ipt"
+        name="productCategory"
+        id="productCategory"
+        formControlName="productCategory"
+      >
+        <option value="" selected>-- Categories --</option>
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="ipt-container input-product-image">
+      <div class="image-preview">
+        <img
+          [src]="productForm.value.productImage ? productForm.value.productImage : '../../../assets/images/imagePreview.png'"
+          alt="Product Image Preview"
+        />
+      </div>
+      <label class="lbl" for="productImage">Image</label>
+      <input class="ipt" type="text" id="productImage" formControlName="productImage" />
+    </div>
+    <button class="btn" type="submit">{{ formAction === "edit" ? "Edit" : "Add" }}</button>
+  </form>
+</div>
+
