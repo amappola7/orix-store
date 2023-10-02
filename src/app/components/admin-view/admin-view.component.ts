@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { ProductService } from 'src/app/services/product.service';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
-import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admin-view',
@@ -10,31 +10,24 @@ import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./admin-view.component.scss']
 })
 export class AdminViewComponent {
-  screenMode!: boolean;
   products: IProduct[] = [];
+  showProductFormModal: boolean = false;
+  inputFormAction!: string;
+  inputFormDefaultValues: IProduct = {
+    id: 0,
+    title: '',
+    price: 0,
+    description: '',
+    category: '',
+    image: '',
+  };
+  screenMode!: boolean;
   icons = {
     editIcon: faPencil,
-    deleteIcon: faTrash
+    deleteIcon: faTrash,
+    exitIcon: faXmark
   };
   screenSize: number = window.screen.width;
-
-  // To - Do: Delete this objects after create forms to add and edit product
-  productToEdit: IProduct = {
-    id: 1,
-    title: 'PRODUCTO EDITADO',
-    price: 123,
-    description: 'ESTA ES LA DESCRIPCIÓN DEL PRODUCTO EDITADO',
-    category: 'QUESO',
-    image: 'SOME IMAGE',
-  }
-  productToCreate: IProduct = {
-    id: 100,
-    title: 'Queso',
-    price: 123,
-    description: 'El queso es rico con pan y chocolate',
-    category: 'food',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYYGEVU9kNRFjCLwTE_IqCcZf8vRjrNJA808Dm24_OYA&s',
-  }
 
   constructor(
     private screenModeService: ScreenModeService,
@@ -49,6 +42,12 @@ export class AdminViewComponent {
 
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
+  }
+
+  onShowProductFormModal(action: string, defaultValues: IProduct = this.inputFormDefaultValues): void {
+    this.inputFormAction = action;
+    this.inputFormDefaultValues = defaultValues;
+    this.showProductFormModal = !this.showProductFormModal;
   }
 
   editProduct(id: number, productData: IProduct): void {
@@ -68,5 +67,24 @@ export class AdminViewComponent {
   createProduct(productData: IProduct): void {
     this.productService.createProduct(productData)
     .subscribe((product) => this.products.push(product));
+  }
+
+  onSubmitProductForm(emission: any): void {
+    const productData: IProduct = {
+      id: emission.productId,
+      title: emission.productFormValue.productName,
+      price: emission.productFormValue.productPrice,
+      description: emission.productFormValue.productDescription,
+      category: emission.productFormValue.productCategory,
+      image: emission.productFormValue.productImage
+    }
+
+    if(this.inputFormAction === 'add') {
+      this.createProduct(productData);
+    } else {
+      this.editProduct(productData.id, productData);
+    }
+
+    this.showProductFormModal = !this.showProductFormModal;
   }
 }

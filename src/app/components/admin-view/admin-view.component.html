@@ -3,7 +3,7 @@
   <div class="admin-view__container">
     <div class="admin-view__title">
       <h2>Products</h2>
-      <button class="btn" (click)="createProduct(productToCreate)">Add product</button>
+      <button class="btn" (click)="onShowProductFormModal('add')">Add product</button>
     </div>
     <div class="admin-view__content">
       <table class="admin-view__table">
@@ -43,7 +43,7 @@
               <div class="td-options__container">
                 <button
                   class="btn edit-icon"
-                  (click)="editProduct(product.id, productToEdit)"
+                  (click)="onShowProductFormModal('edit', product)"
                 >
                   <fa-icon [icon]="icons.editIcon"></fa-icon>
                 </button>
@@ -62,3 +62,11 @@
   </div>
 </section>
 <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>
+<div class="product-form-modal" *ngIf="showProductFormModal">
+  <div class="product-form-modal__container">
+    <div class="product-form-modal__content">
+      <button class="btn" (click)="onShowProductFormModal('edit')"><fa-icon [icon]="icons.exitIcon"></fa-icon></button>
+      <app-add-or-edit-product-form [formAction]="inputFormAction" [formValues]="inputFormDefaultValues" (formResult)="onSubmitProductForm($event)"></app-add-or-edit-product-form>
+    </div>
+  </div>
+</div>

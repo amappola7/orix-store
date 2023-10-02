@@ -161,6 +161,40 @@
   }
 }
 
+.product-form-modal {
+  @include displayFlex(row, center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background-color: $translucent-grey;
+
+  .product-form-modal__container {
+    @include displayFlex(column, center, center);
+    width: 90%;
+    height: 90%;
+    min-height: 62rem;
+    border-radius: calc(100vh * 0.9 / 2);
+    background-color: white;
+
+    .product-form-modal__content {
+      @include displayFlex(column, flex-start, center, 2rem);
+      width: 95%;
+      height: 100%;
+      padding-top: 5rem;
+      border-radius: calc(100vh * 0.9 / 2);
+
+      .btn {
+        width: 4rem;
+        background-color: $white;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1080px) {
   .admin-view {
     .admin-view__container {
@@ -264,6 +298,23 @@
             }
           }
         }
+      }
+    }
+  }
+
+  .product-form-modal {
+    .product-form-modal__container {
+      @include displayFlex(column, center, center);
+      width: 20%;
+      height: 70%;
+      border-radius: calc(100vh * 0.7 / 2);
+
+      .product-form-modal__content {
+        @include displayFlex(column, flex-start, center, 2rem);
+        width: 100%;
+        height: 100%;
+        padding-top: 8rem;
+        border-radius: none;
       }
     }
   }

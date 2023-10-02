@@ -13,15 +13,37 @@ export class AddOrEditProductFormComponent {
   @Output() formResult = new EventEmitter<any>();
 
   productForm = new FormGroup({
-    productName: new FormControl(this.formValues.title),
-    productPrice: new FormControl(this.formValues.price),
-    productDescription: new FormControl(this.formValues.description),
-    productCategory: new FormControl(this.formValues.category),
-    productImage: new FormControl(this.formValues.image),
+    productName: new FormControl(''),
+    productPrice: new FormControl(0),
+    productDescription: new FormControl(''),
+    productCategory: new FormControl(''),
+    productImage: new FormControl(''),
   });
 
-  onSubmit(): void {
-    this.formResult.emit(this.productForm.value);
+  constructor() {}
+
+  ngOnInit() {
+    if(this.formAction === 'edit') {
+      this.fillingForm();
+    }
   }
 
+
+  onSubmit(): void {
+    const emission = {
+      productFormValue: this.productForm.value,
+      productId: this.formValues.id
+    }
+    this.formResult.emit(emission);
+  }
+
+  fillingForm(): void {
+    this.productForm.patchValue({
+      productName: this.formValues.title,
+      productPrice: this.formValues.price,
+      productDescription: this.formValues.description,
+      productCategory: this.formValues.category,
+      productImage: this.formValues.image,
+    });
+  }
 };

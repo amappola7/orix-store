@@ -4,6 +4,7 @@ $secondary-color: #F83A26;
 $enfasis-color: #FFC344;
 $grey: #D9D9D9;
 $grey-variation: #a3a3a3;
+$translucent-grey: RGBA(0, 0, 0, 0.15);
 $white: #FFFFFF;
 $font-family: 'League Spartan', sans-serif;
 $box-shadow: 0 0 0.6rem RGBA(0, 0, 0, 0.15);
@@ -65,7 +66,7 @@ a {
   width: 30%;
   font-size: 1.8rem;
   font-weight: 600;
-  color: $main-color;
+  color: $main-color-variation;
 }
 
 .ipt {
@@ -77,7 +78,7 @@ a {
   font-family: $font-family;
   font-size: 1.8rem;
   font-weight: 400;
-  color: $main-color;
+  color: $main-color-variation;
   outline: none;
   box-shadow: $box-shadow;
 }

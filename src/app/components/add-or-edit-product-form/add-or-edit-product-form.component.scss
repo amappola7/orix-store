@@ -1,0 +1,60 @@
+@import "../../../styles.scss";
+
+.product-form {
+  @include displayFlex(column, center, center, 2rem);
+  width: 100%;
+  height: 100%;
+
+  h2 {
+  font-size: 2.2rem;
+  color: $main-color-variation;
+  }
+
+  form {
+    @include displayFlex(column, center, center, 1.5rem);
+    width: 95%;
+
+    // .image-preview {
+    //   width: 6rem;
+    //   height: 6rem;
+    //   border-radius: 50%;
+    //   background-color: $white;
+    //   object-fit: cover;
+    //   overflow: hidden;
+
+    //   img {
+    //     width: 100%;
+    //     object-fit: cover;
+    //   }
+    // }
+
+    .btn {
+      width: 10rem;
+      margin-top: 1.5rem;
+      color: $secondary-color;
+      background-color: $white;
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .product-form {
+    form {
+      width: 100%;
+
+      // .image-preview {
+      //   width: 6rem;
+      //   height: 6rem;
+      //   border-radius: 50%;
+      //   background-color: $white;
+      //   object-fit: cover;
+      //   overflow: hidden;
+
+      //   img {
+      //     width: 100%;
+      //     object-fit: cover;
+      //   }
+      // }
+    }
+  }
+}
