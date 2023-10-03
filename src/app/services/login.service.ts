@@ -14,7 +14,7 @@ export class LoginService {
     private _http: HttpClient
   ) { }
 
-  login(userData: IUser): Observable<IUser> {
+  login(userData: IUser): Observable<any> {
     return this._http.post<IUser>(this._url, userData)
     .pipe(
       tap(() => 'User logged succesfully'),

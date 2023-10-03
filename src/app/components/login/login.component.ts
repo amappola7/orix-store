@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { IUser } from 'src/app/interfaces/iuser';
 import { LoginService } from 'src/app/services/login.service';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent {
 
   constructor(
     private screenModeService: ScreenModeService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -37,6 +39,6 @@ export class LoginComponent {
   onLogginUser() {
     const userData: IUser = JSON.parse(JSON.stringify(this.loginForm.value));
     this.loginService.login(userData)
-    .subscribe((result) => console.log(result));
+    .subscribe((response) => response.token ? this.router.navigateByUrl('admin-view'): console.log(response));
   }
 }
