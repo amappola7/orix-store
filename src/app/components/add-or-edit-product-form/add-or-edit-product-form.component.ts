@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IProduct } from 'src/app/interfaces/iproduct';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-add-or-edit-product-form',
@@ -8,10 +9,6 @@ import { IProduct } from 'src/app/interfaces/iproduct';
   styleUrls: ['./add-or-edit-product-form.component.scss']
 })
 export class AddOrEditProductFormComponent {
-  @Input() formAction!: string;
-  @Input() formValues!: IProduct;
-  @Output() formResult = new EventEmitter<any>();
-
   productForm = new FormGroup({
     productName: new FormControl(''),
     productPrice: new FormControl(0),
@@ -19,10 +16,20 @@ export class AddOrEditProductFormComponent {
     productCategory: new FormControl(''),
     productImage: new FormControl(''),
   });
+  productCategoriesList: string[] = [];
 
-  constructor() {}
+  @Input() formAction!: string;
+  @Input() formValues!: IProduct;
+  @Output() formResult = new EventEmitter<any>();
+
+  constructor(
+    private productService: ProductService
+  ) {}
 
   ngOnInit() {
+    this.productService.getCategories()
+    .subscribe((data) => this.productCategoriesList = data);
+
     if(this.formAction === 'edit') {
       this.fillingForm();
     }

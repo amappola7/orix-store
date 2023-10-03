@@ -37,7 +37,7 @@
         formControlName="productCategory"
       >
         <option value="" selected>-- Categories --</option>
-        <option value=""></option>
+        <option *ngFor="let category of productCategoriesList" value="category">{{category}}</option>
       </select>
     </div>
     <div class="input-content ipt-container">
