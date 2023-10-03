@@ -1,6 +1,9 @@
 <section [ngClass]="screenMode ? 'admin-view' : 'admin-view dark-mode'">
   <div class="white-space"></div>
-  <div class="admin-view__container">
+  <div class="admin-view__container" *ngIf="!loginStatus">
+    <h2 class="login-message"><a routerLink="/log-in">Log in</a> to see the admin view</h2>
+  </div>
+  <div class="admin-view__container" *ngIf="loginStatus">
     <div class="admin-view__title">
       <h2>Products</h2>
       <button class="btn" (click)="onShowProductFormModal('add')">Add product</button>

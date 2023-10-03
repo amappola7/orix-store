@@ -8,7 +8,6 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  loginStatus!: boolean;
   screenSize: number = window.screen.width;
   mobileMenuDisplay: boolean = false;
   icons = {
@@ -22,11 +21,6 @@ export class HeaderComponent {
   constructor(
     private loginService: LoginService
   ) {}
-
-  ngOnInit() {
-    this.loginService.getLoginStatus()
-    .subscribe((status) => this.loginStatus = status)
-  }
 
   displayMobileMenu(): void {
     this.mobileMenuDisplay = !this.mobileMenuDisplay;

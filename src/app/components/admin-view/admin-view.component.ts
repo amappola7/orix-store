@@ -3,6 +3,7 @@ import { IProduct } from 'src/app/interfaces/iproduct';
 import { ProductService } from 'src/app/services/product.service';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
 import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-admin-view',
@@ -28,13 +29,16 @@ export class AdminViewComponent {
     exitIcon: faXmark
   };
   screenSize: number = window.screen.width;
+  loginStatus!: boolean;
 
   constructor(
     private screenModeService: ScreenModeService,
-    private productService: ProductService
+    private productService: ProductService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit() {
+    this.loginStatus = this.loginService.loginStatus;
     this.screenMode = this.screenModeService.screenMode;
     this.productService.getProducts()
     .subscribe((products) => this.products = products);

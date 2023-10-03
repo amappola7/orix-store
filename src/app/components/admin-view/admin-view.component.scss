@@ -16,6 +16,15 @@
     padding-top: 7rem;
     padding-bottom: 2rem;
 
+    .login-message {
+      font-size: 2.5rem;
+
+      a {
+        color: $main-color-variation;
+        text-decoration: underline;
+      }
+    }
+
     .admin-view__title {
       @include displayFlex(row, space-between, center);
       width: 90%;
@@ -115,6 +124,14 @@
   }
 
   .admin-view__container {
+    .login-message {
+      color: $white;
+
+      a {
+        color: $white;
+      }
+    }
+
     .admin-view__title {
       h2 {
         color: $white;
@@ -198,6 +215,7 @@
 @media screen and (min-width: 1080px) {
   .admin-view {
     .admin-view__container {
+      min-height: calc(100vh - 7rem);
       padding-top: 8rem;
       padding-bottom: 2rem;
 
