@@ -1,14 +1,14 @@
 <section [ngClass]="screenMode ? 'login' :'login dark-mode'">
   <div class="login__card">
     <h2>Log in</h2>
-    <form class="login__container">
+    <form class="login__container" [formGroup]="loginForm" (ngSubmit)="onLogginUser()">
       <div class="ipt-container login__email-input">
-        <label class="lbl" for="user-email">Email</label>
-        <input class="ipt" type="email" id="user-email">
+        <label class="lbl" for="username">Username</label>
+        <input class="ipt" type="text" id="username" formControlName="username">
       </div>
       <div class="ipt-container login__password-input">
         <label class="lbl" for="user-password">Password</label>
-        <input class="ipt" type="password" id="user-password">
+        <input class="ipt" type="password" id="user-password" formControlName="password">
       </div>
       <button class="btn login__submit-button" type="submit">Log in</button>
     </form>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { IUser } from 'src/app/interfaces/iuser';
+import { LoginService } from 'src/app/services/login.service';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
 
 @Component({
@@ -9,8 +12,14 @@ import { ScreenModeService } from 'src/app/services/screen-mode.service';
 export class LoginComponent {
   screenMode!: boolean;
 
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
+
   constructor(
-    private screenModeService: ScreenModeService
+    private screenModeService: ScreenModeService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit() {
@@ -23,5 +32,11 @@ export class LoginComponent {
 
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
+  }
+
+  onLogginUser() {
+    const userData: IUser = JSON.parse(JSON.stringify(this.loginForm.value));
+    this.loginService.login(userData)
+    .subscribe((result) => console.log(result));
   }
 }
