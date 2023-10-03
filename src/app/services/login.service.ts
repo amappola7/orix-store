@@ -9,6 +9,13 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class LoginService {
   private _url: string = 'https://fakestoreapi.com/auth/login';
+  private _loginStatus: boolean = false;
+  get loginStatus(): boolean {
+    return this._loginStatus;
+  }
+  set loginStatus(status: boolean) {
+    this._loginStatus = status;
+  }
 
   constructor(
     private _http: HttpClient
@@ -23,5 +30,10 @@ export class LoginService {
         return of(error)
       })
     )
+  }
+
+  getLoginStatus(): Observable<boolean> {
+    this.loginStatus = !this.loginStatus;
+    return of(this.loginStatus);
   }
 }

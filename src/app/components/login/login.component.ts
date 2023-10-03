@@ -39,6 +39,13 @@ export class LoginComponent {
   onLogginUser() {
     const userData: IUser = JSON.parse(JSON.stringify(this.loginForm.value));
     this.loginService.login(userData)
-    .subscribe((response) => response.token ? this.router.navigateByUrl('admin-view'): console.log(response));
+    .subscribe((response) => {
+      if (response.token) {
+        this.router.navigateByUrl('admin-view');
+        this.loginService.loginStatus = true;
+      } else {
+        console.log(response);
+      }
+    });
   }
 }
