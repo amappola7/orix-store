@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,6 +16,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { AddOrEditProductFormComponent } from './components/add-or-edit-product-
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
