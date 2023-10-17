@@ -9,11 +9,13 @@
   padding: 2rem 2rem 4rem;
   border-radius: 20rem;
   box-shadow: $box-shadow;
+  cursor: pointer;
 
   .card-image__container {
     @include displayFlex(row, center, center);
     width: 25rem;
     height: 25rem;
+    box-shadow:  0 0 0.4rem RGBA(0, 0, 0, 0.1);
     border-radius: 50%;
     background-color: $white;;
     overflow: hidden;
@@ -31,13 +33,13 @@
     text-align: center;
 
     .card-information__name {
-      max-height: 6rem;
+      max-height: 4rem;
       font-size: 2rem;
       overflow: hidden;
     }
 
     .card-information__description {
-      max-height: 6rem;
+      max-height: 3.2rem;
       font-size: 1.8rem;
       overflow: hidden;
     }
@@ -49,9 +51,15 @@
     color: $enfasis-color;
   }
 
-  .card-button {
-    background-color: white;
-    color: $secondary-color;
+  .card-information__buttons {
+    @include displayFlex(row, center, center, 2rem);
+    width: 100%;
+
+    .card-button {
+      width: 4rem;
+      background-color: white;
+      color: $secondary-color;
+    }
   }
 }
 
@@ -66,8 +74,10 @@
     color: $secondary-color;
   }
 
-  .card-button {
-    background-color: $main-color;
-    color: $enfasis-color;
+  .card-information__buttons {
+    .card-button {
+      background-color: $main-color;
+      color: $enfasis-color;
+    }
   }
 }
