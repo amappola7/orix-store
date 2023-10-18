@@ -1,7 +1,35 @@
 <div [ngClass]="screenMode ? 'white-space' : 'white-space dark-mode'"></div>
-<section  [ngClass]="screenMode ? 'product-details' : 'product-details dark-mode'">
+<section
+  [ngClass]="screenMode ? 'product-details' : 'product-details dark-mode'"
+>
+  <div class="product-details__content">
+    <div class="product-details__image-container">
+      <img
+        class="product-details__image"
+        [src]="productInfo.image"
+        [alt]="productInfo.title"
+        [title]="productInfo.title"
+      />
+    </div>
+    <div class="product-details__info">
+      <h2 class="product-details__name">{{ productInfo.title }}</h2>
+      <p class="product-details__description">{{ productInfo.description }}</p>
+      <p class="product-details__price">{{ productInfo.price | currency}}</p>
+      <div class="product-details__cart-buttons">
+        <span>
+          <button class="btn" (click)="removeQuantityToProduct()"><fa-icon [icon]="icons.removeProductIcon"></fa-icon></button>
+          <p>{{quantity}}</p>
+          <button class="btn" (click)="addQuantityToProduct()"><fa-icon [icon]="icons.addProductIcon"></fa-icon></button>
+        </span>
+        <button class="btn" (click)="addProductToCart(productInfo.id)">ADD TO CART</button>
+      </div>
+    </div>
+  </div>
   <div class="related-products-container">
-    <app-related-products [currentProduct]="product" [screenMode]="screenMode"></app-related-products>
+    <app-related-products
+      [currentProduct]="productInfo"
+      [screenMode]="screenMode"
+    ></app-related-products>
   </div>
 </section>
 <app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>

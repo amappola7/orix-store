@@ -36,7 +36,7 @@ export class CardComponent {
   addProductToCart(id: number): void {
     this.productService.getProductById(id)
     .subscribe((product) => {
-      this.cartService.addProduct(product);
+      this.cartService.addProduct(product, 1);
       this.openCartAlert();
     })
   };

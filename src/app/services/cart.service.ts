@@ -31,9 +31,9 @@ export class CartService {
 
   constructor() { }
 
-  addProduct(productToAdd: IProduct): void {
+  addProduct(productToAdd: IProduct, quantityToAdd: number): void {
     const item: ICartItem = {
-      quantity: 1,
+      quantity: quantityToAdd,
       product: productToAdd
     };
 
