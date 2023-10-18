@@ -14,14 +14,20 @@
     <div class="product-details__info">
       <h2 class="product-details__name">{{ productInfo.title }}</h2>
       <p class="product-details__description">{{ productInfo.description }}</p>
-      <p class="product-details__price">{{ productInfo.price | currency}}</p>
+      <p class="product-details__price">{{ productInfo.price | currency }}</p>
       <div class="product-details__cart-buttons">
         <span>
-          <button class="btn" (click)="removeQuantityToProduct()"><fa-icon [icon]="icons.removeProductIcon"></fa-icon></button>
-          <p>{{quantity}}</p>
-          <button class="btn" (click)="addQuantityToProduct()"><fa-icon [icon]="icons.addProductIcon"></fa-icon></button>
+          <button class="btn" (click)="removeQuantityToProduct()">
+            <fa-icon [icon]="icons.removeProductIcon"></fa-icon>
+          </button>
+          <p>{{ quantity }}</p>
+          <button class="btn" (click)="addQuantityToProduct()">
+            <fa-icon [icon]="icons.addProductIcon"></fa-icon>
+          </button>
         </span>
-        <button class="btn" (click)="addProductToCart(productInfo.id)">ADD TO CART</button>
+        <button class="btn add-to-cart-button" (click)="addProductToCart(productInfo.id)">
+          ADD TO CART
+        </button>
       </div>
     </div>
   </div>

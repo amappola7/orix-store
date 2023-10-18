@@ -8,10 +8,81 @@
 }
 
 .product-details {
-  @include displayFlex(column, start, center, 1rem);
+  @include displayFlex(column, center, center, 1rem);
   min-height: calc(100vh - 7rem);
   padding-top: 8rem;
   padding-bottom: 2rem;
+
+  .product-details__content {
+    @include displayFlex(column, flex-start, center, 1.5rem);
+    width: 100%;
+    height: calc(100vh - 7rem);
+    padding-top: 3rem;
+
+    .product-details__image-container {
+      @include displayFlex(column, center, center);
+      width: 70%;
+      height: calc(100vw * 0.7);
+      border-radius: 50%;
+      background-color: $white;
+      box-shadow: $box-shadow;
+      overflow: hidden;
+
+      .product-details__image {
+        width: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .product-details__info {
+      width: 90%;
+
+      .product-details__name {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .product-details__description {
+        height: 6rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        overflow: hidden;
+      }
+
+      .product-details__price {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $enfasis-color;
+        text-align: center;
+      }
+    }
+  }
+
+  .product-details__cart-buttons {
+    @include displayFlex(row, center, center, 1.5rem);
+
+    span {
+      @include displayFlex(row, center, center, 1.5rem);
+
+      button {
+        width: 0.4rem;
+        background-color: $white;
+      }
+
+      p {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+    }
+
+    .add-to-cart-button {
+      background-color: $white;
+      color: $secondary-color;
+    }
+  }
 
   .related-products-container {
     width: 95%;
@@ -23,5 +94,40 @@
 }
 
 @media screen and (min-width: 1080px) {
-  
+  .product-details {
+    .product-details__content {
+      @include displayFlex(row, center, center);
+      width: 95%;
+      padding-top: 0;
+
+      .product-details__image-container {
+        width: 40%;
+        height: calc(100vw * 0.4);
+
+        .product-details__image {
+          width: 60%;
+        }
+      }
+
+      .product-details__info {
+        @include displayFlex(column, center, center);
+        width: 60%;
+
+        .product-details__name {
+          width: 80%;
+          text-align: start;
+        }
+
+        .product-details__description {
+          width: 80%;
+          height: fit-content;
+          overflow: visible;
+        }
+      }
+    }
+
+    .related-products-container {
+      width: 95%;
+    }
+  }
 }
