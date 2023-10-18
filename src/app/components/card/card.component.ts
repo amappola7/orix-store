@@ -4,6 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { faShoppingCart, faInfo } from '@fortawesome/free-solid-svg-icons';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -22,10 +23,11 @@ export class CardComponent {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ){}
 
-  openCartAlert() {
+  openCartAlert(): void {
     this._snackBar.open('Product added to cart', '', {
       duration: 2500,
     });
@@ -38,4 +40,8 @@ export class CardComponent {
       this.openCartAlert();
     })
   };
+
+  navigateToDetails(): void {
+    this.router.navigateByUrl(`product-details/${this.productInfo.id}`);
+  }
 }
