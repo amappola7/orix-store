@@ -239,13 +239,19 @@
 
           .cart-item__image-container {
             @include displayFlex(row, center, center);
-            width: 20%;
-          }
+            width: 10rem;
+            height: 10rem;
+            margin-left: 2rem;
+            border-radius: 5rem;
+            overflow: hidden;
+            background-color: $white;
+            object-fit: cover;
 
-          img {
-            width: 9rem;
-            height: 9rem;
-            border: none;
+            .cart-item__image {
+              height: 70%;
+              border: none;
+              border-radius: 0;
+            }
           }
 
           .cart-item__content {

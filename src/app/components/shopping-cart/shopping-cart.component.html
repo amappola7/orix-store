@@ -12,7 +12,7 @@
       <p class="empty-cart" *ngIf="cart.length === 0">Your cart is empty</p>
       <div class="cart-item" *ngFor="let item of cart">
         <div class="cart-item__image-container">
-          <img [src]="item.product.image" [alt]="item.product.title" [title]="item.product.title">
+          <img class="cart-item__image" [src]="item.product.image" [alt]="item.product.title" [title]="item.product.title">
         </div>
         <div class="cart-item__content">
           <h2>{{item.product.title}}</h2>

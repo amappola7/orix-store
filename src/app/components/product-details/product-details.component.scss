@@ -91,6 +91,45 @@
 
 .dark-mode {
   background-color: $main-color-variation;
+
+  .product-details__content {
+    .product-details__info {
+
+      .product-details__name {
+        color: $white;
+      }
+
+      .product-details__description {
+        color: $white;
+      }
+
+      .product-details__price {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .product-details__cart-buttons {
+    span {
+      button {
+        color: $enfasis-color;
+        background-color: $main-color;
+      }
+
+      p {
+        color: $white;
+      }
+    }
+
+    .add-to-cart-button {
+      background-color: $main-color;
+      color: $enfasis-color;
+    }
+  }
+
+  .related-products-container {
+    width: 95%;
+  }
 }
 
 @media screen and (min-width: 1080px) {
