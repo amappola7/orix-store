@@ -10,17 +10,17 @@ import { ProductService } from 'src/app/services/product.service';
 export class RelatedProductsComponent {
   productsList: IProduct[] = [];
 
-  @Input() productCategory!: string;
+  @Input() currentProduct!: IProduct;
   @Input() screenMode!: boolean;
 
   constructor(
     private productService: ProductService
   ) {}
 
-  ngOnInit() {
+  ngOnChanges() {
     this.productService.getProducts()
     .subscribe((products) => {
-      this.productsList = products.filter((product) => product.category === this.productCategory);
+      this.productsList = products.filter((product) => product.category === this.currentProduct.category && product.id !== this.currentProduct.id);
     })
   }
 }
