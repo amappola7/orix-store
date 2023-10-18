@@ -17,6 +17,8 @@ import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { RelatedProductsComponent } from './components/related-products/related-products.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ShoppingCartComponent,
     MobileNavMenuComponent,
     AdminViewComponent,
-    AddOrEditProductFormComponent
+    AddOrEditProductFormComponent,
+    ProductDetailsComponent,
+    RelatedProductsComponent
   ],
   imports: [
     BrowserModule,
