@@ -88,6 +88,11 @@
 
   .search-and-filter-container {
     .ipt-container {
+
+      .lbl {
+        color: $white;
+      }
+
       .ipt {
         color: $white;
         background-color: $main-color-variation;
