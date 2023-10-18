@@ -42,6 +42,6 @@ export class CardComponent {
   };
 
   navigateToDetails(): void {
-    this.router.navigateByUrl(`product-details/${this.productInfo.id}`);
+    this.router.navigateByUrl(`/product-details/${this.productInfo.id}`);
   }
 }
