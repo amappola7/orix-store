@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-related-products',
@@ -8,4 +9,17 @@ import { IProduct } from 'src/app/interfaces/iproduct';
 })
 export class RelatedProductsComponent {
   productsList: IProduct[] = [];
+
+  @Input() productCategory!: string;
+
+  constructor(
+    private productService: ProductService
+  ) {}
+
+  ngOnInit() {
+    this.productService.getProducts()
+    .subscribe((products) => {
+      this.productsList = products.filter((product) => product.category === this.productCategory);
+    })
+  }
 }
