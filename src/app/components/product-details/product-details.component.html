@@ -1,1 +1,7 @@
-<p>product-details works!</p>
+<div [ngClass]="screenMode ? 'white-space' : 'white-space dark-mode'"></div>
+<section  [ngClass]="screenMode ? 'product-details' : 'product-details dark-mode'">
+  <div class="related-products-container">
+    <app-related-products [productCategory]="'electronics'" [screenMode]="screenMode"></app-related-products>
+  </div>
+</section>
+<app-footer (onChangeScreenMode)="setScreenMode($event)"></app-footer>

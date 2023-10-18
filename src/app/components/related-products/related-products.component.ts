@@ -11,6 +11,7 @@ export class RelatedProductsComponent {
   productsList: IProduct[] = [];
 
   @Input() productCategory!: string;
+  @Input() screenMode!: boolean;
 
   constructor(
     private productService: ProductService

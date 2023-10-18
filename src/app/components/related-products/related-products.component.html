@@ -1,3 +1,10 @@
-<section class="related-products">
-  <app-card *ngFor="let product of productsList"></app-card>
+<section [ngClass]="screenMode ? 'related-products' : 'related-products dark-mode'">
+  <h2>Related products</h2>
+  <div class="cards-container">
+    <app-card
+      *ngFor="let product of productsList"
+      [productInfo]="product"
+      [inputScreenModeII]="screenMode"
+    ></app-card>
+  </div>
 </section>
