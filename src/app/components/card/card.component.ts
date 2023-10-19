@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -19,6 +19,7 @@ export class CardComponent {
   selectedProduct!: IProduct;
   @Input() productInfo!: IProduct;
   @Input () inputScreenModeII!: boolean;
+  @Output() routeChange: EventEmitter<boolean> = new EventEmitter(true);
 
   constructor(
     private productService: ProductService,
@@ -43,5 +44,10 @@ export class CardComponent {
 
   navigateToDetails(): void {
     this.router.navigateByUrl(`/product-details/${this.productInfo.id}`);
+    this.sendRouteChangeNotification();
+  }
+
+  sendRouteChangeNotification(): void {
+    this.routeChange.emit(true);
   }
 }

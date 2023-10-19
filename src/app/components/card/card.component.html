@@ -8,7 +8,7 @@
   </div>
   <p class="card-information__price"  (click)="navigateToDetails()">{{productInfo.price | currency}}</p>
   <div class="card-information__buttons">
-    <a class="btn card-button" title="See details" routerLink="/product-details/{{productInfo.id}}"><fa-icon [icon]="icons.moreInfoIcon"></fa-icon></a>
+    <a class="btn card-button" title="See details" routerLink="/product-details/{{productInfo.id}}" (click)="sendRouteChangeNotification()"><fa-icon [icon]="icons.moreInfoIcon"></fa-icon></a>
     <button class="btn card-button" title="Add to cart" (click)="addProductToCart(productInfo.id)"><fa-icon [icon]="icons.shoppingCartIcon"></fa-icon></button>
   </div>
 </div>

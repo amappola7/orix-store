@@ -5,6 +5,7 @@
       *ngFor="let product of productsList"
       [productInfo]="product"
       [inputScreenModeII]="screenMode"
+      (routeChange)="sendRouteChangeNotification($event)"
     ></app-card>
   </div>
 </section>

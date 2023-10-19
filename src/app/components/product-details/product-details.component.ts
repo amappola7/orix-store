@@ -66,7 +66,12 @@ export class ProductDetailsComponent {
       this.openCartAlert();
     })
   };
+
   setScreenMode(mode: boolean): void {
     this.screenMode = mode;
+  }
+
+  onRouteChange(): void {
+    this.getProduct();
   }
 }

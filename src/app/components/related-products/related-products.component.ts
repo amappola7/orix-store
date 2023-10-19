@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,6 +12,7 @@ export class RelatedProductsComponent {
 
   @Input() currentProduct!: IProduct;
   @Input() screenMode!: boolean;
+  @Output() routeChangeNotificacion: EventEmitter<boolean> = new EventEmitter(true);
 
   constructor(
     private productService: ProductService
@@ -22,5 +23,9 @@ export class RelatedProductsComponent {
     .subscribe((products) => {
       this.productsList = products.filter((product) => product.category === this.currentProduct.category && product.id !== this.currentProduct.id);
     })
+  }
+
+  sendRouteChangeNotification(value: boolean): void {
+    this.routeChangeNotificacion.emit(value);
   }
 }
