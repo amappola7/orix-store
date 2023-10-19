@@ -323,7 +323,7 @@
   .product-form-modal {
     .product-form-modal__container {
       @include displayFlex(column, center, center);
-      width: 20%;
+      width: 30%;
       height: 70%;
       border-radius: calc(100vh * 0.7 / 2);
 
