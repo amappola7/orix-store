@@ -3,6 +3,7 @@ import { ICartItem } from 'src/app/interfaces/icart-item';
 import { CartService } from 'src/app/services/cart.service';
 import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -21,7 +22,8 @@ export class ShoppingCartComponent {
 
   constructor (
     private cartService: CartService,
-    private screenModeService: ScreenModeService
+    private screenModeService: ScreenModeService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -55,6 +57,12 @@ export class ShoppingCartComponent {
   removeQuantityToProduct(id: number) {
     this.cart = this.cartService.removeQuantity(id);
     this.totalCart = this.cartService.calculateTotalInCart();
+  }
+
+  checkoutAlert(): void {
+    this._snackBar.open('This page is under construction', 'Done', {
+      duration: 2500,
+    });
   }
 }
 
