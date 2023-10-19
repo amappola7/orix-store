@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ScreenModeService } from 'src/app/services/screen-mode.service';
 import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from 'src/app/services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-view',
@@ -34,7 +35,8 @@ export class AdminViewComponent {
   constructor(
     private screenModeService: ScreenModeService,
     private productService: ProductService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -65,6 +67,9 @@ export class AdminViewComponent {
     this.productService.deleteProduct(id)
     .subscribe((deletedProduct) => {
       this.products = this.products.filter((product) => product.id !== deletedProduct.id ? product : false);
+      this._snackBar.open('Product deleted', '', {
+        duration: 2500,
+      });
     });
   }
 
@@ -85,8 +90,14 @@ export class AdminViewComponent {
 
     if(this.inputFormAction === 'add') {
       this.createProduct(productData);
+      this._snackBar.open('Product created', '', {
+        duration: 2500,
+      });
     } else {
       this.editProduct(productData.id, productData);
+      this._snackBar.open('Product edited', '', {
+        duration: 2500,
+      });
     }
 
     this.showProductFormModal = !this.showProductFormModal;
