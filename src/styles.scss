@@ -8,7 +8,7 @@ $translucent-grey: RGBA(0, 0, 0, 0.15);
 $white: #FFFFFF;
 $font-family: 'League Spartan', sans-serif;
 $box-shadow: 0 0 0.6rem RGBA(0, 0, 0, 0.15);
-$box-shadow-variation: 0 0 0.8rem RGBA(0, 0, 0, 0.8);
+$box-shadow-variation: 0 0 0.8rem RGBA(0, 0, 0, 1);
 
 @mixin displayFlex($flex-direction: row, $justify-content, $align-items, $gap: 0, $wrap: wrap) {
   display: flex;
