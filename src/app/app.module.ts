@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ShoppingCartComponent } from './ui/pages/shopping-cart/shopping-cart.component';
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
-import { AdminViewComponent } from './components/admin-view/admin-view.component';
+import { AdminViewComponent } from './ui/pages/admin-view/admin-view.component';
 import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
