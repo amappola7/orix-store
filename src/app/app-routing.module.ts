@@ -6,7 +6,7 @@ import { LoginComponent } from './ui/pages/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ShoppingCartComponent } from './ui/pages/shopping-cart/shopping-cart.component';
 import { AdminViewComponent } from './ui/pages/admin-view/admin-view.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductDetailsComponent } from './ui/shared/components/product-details/product-details.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
