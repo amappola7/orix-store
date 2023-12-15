@@ -5,7 +5,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HomeComponent } from './ui/pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,7 +22,6 @@ import { RelatedProductsComponent } from './components/related-products/related-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CardComponent,
     HeaderComponent,
     FooterComponent,
