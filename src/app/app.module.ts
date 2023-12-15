@@ -12,7 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './ui/pages/shopping-cart/shopping-cart.component';
 import { MobileNavMenuComponent } from './components/mobile-nav-menu/mobile-nav-menu.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { AddOrEditProductFormComponent } from './components/add-or-edit-product-form/add-or-edit-product-form.component';

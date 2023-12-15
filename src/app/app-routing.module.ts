@@ -4,7 +4,7 @@ import { HomeComponent } from './ui/pages/home/home.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './ui/pages/shopping-cart/shopping-cart.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
